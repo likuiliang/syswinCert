@@ -7,12 +7,19 @@
 //
 
 #import "TNAppDelegate.h"
+#import "TNRegisterViewController.h"
 
 @implementation TNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    
+    TNRegisterViewController *registerVc = [[TNRegisterViewController alloc] init];
+    
+    self.window.rootViewController = registerVc;
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 

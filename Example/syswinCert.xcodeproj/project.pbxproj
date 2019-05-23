@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6EAE75229639EA0088FE12 /* TNRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAE73229639EA0088FE12 /* TNRegisterViewController.m */; };
+		4D6EAE78229639FE0088FE12 /* TNRegisterView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAE77229639FE0088FE12 /* TNRegisterView.m */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -40,6 +42,10 @@
 		1C299A3E44BAE1DE57EFE814 /* Pods-syswinCert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert_Example/Pods-syswinCert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		27940E0723918E10A33A3A5F /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		338D496100A9DCB689096102 /* Pods_syswinCert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_syswinCert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D6EAE72229639EA0088FE12 /* TNRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TNRegisterViewController.h; sourceTree = "<group>"; };
+		4D6EAE73229639EA0088FE12 /* TNRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TNRegisterViewController.m; sourceTree = "<group>"; };
+		4D6EAE76229639FE0088FE12 /* TNRegisterView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNRegisterView.h; sourceTree = "<group>"; };
+		4D6EAE77229639FE0088FE12 /* TNRegisterView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNRegisterView.m; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* syswinCert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = syswinCert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -107,8 +113,36 @@
 		4D6EAE6C229634900088FE12 /* sourceCode */ = {
 			isa = PBXGroup;
 			children = (
+				4D6EAE71229639EA0088FE12 /* controller */,
+				4D6EAE74229639EA0088FE12 /* model */,
+				4D6EAE70229639EA0088FE12 /* view */,
 			);
 			path = sourceCode;
+			sourceTree = "<group>";
+		};
+		4D6EAE70229639EA0088FE12 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				4D6EAE76229639FE0088FE12 /* TNRegisterView.h */,
+				4D6EAE77229639FE0088FE12 /* TNRegisterView.m */,
+			);
+			path = view;
+			sourceTree = "<group>";
+		};
+		4D6EAE71229639EA0088FE12 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				4D6EAE72229639EA0088FE12 /* TNRegisterViewController.h */,
+				4D6EAE73229639EA0088FE12 /* TNRegisterViewController.m */,
+			);
+			path = controller;
+			sourceTree = "<group>";
+		};
+		4D6EAE74229639EA0088FE12 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 		6003F581195388D10070C39A = {
@@ -316,6 +350,8 @@
 				6003F59E195388D20070C39A /* TNAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* TNViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				4D6EAE78229639FE0088FE12 /* TNRegisterView.m in Sources */,
+				4D6EAE75229639EA0088FE12 /* TNRegisterViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

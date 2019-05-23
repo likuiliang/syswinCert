@@ -1,20 +1,46 @@
 PODS:
+  - AFNetworking (99.3.3.1.0):
+    - AFNetworking/NSURLSession (= 99.3.3.1.0)
+    - AFNetworking/Reachability (= 99.3.3.1.0)
+    - AFNetworking/Security (= 99.3.3.1.0)
+    - AFNetworking/Serialization (= 99.3.3.1.0)
+    - AFNetworking/UIKit (= 99.3.3.1.0)
+  - AFNetworking/NSURLSession (99.3.3.1.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (99.3.3.1.0)
+  - AFNetworking/Security (99.3.3.1.0)
+  - AFNetworking/Serialization (99.3.3.1.0)
+  - AFNetworking/UIKit (99.3.3.1.0):
+    - AFNetworking/NSURLSession
+  - Masonry (99.1.1.1.0)
+  - MBProgressHUD (99.1.1.0.0)
   - openssl-syswin (99.12.1.1.1)
   - TSB (0.0.66):
     - openssl-syswin
 
 DEPENDENCIES:
+  - AFNetworking
+  - Masonry
+  - MBProgressHUD
   - TSB
 
 SPEC REPOS:
   http://172.28.6.24/ios_phenix/toon_pod_spec.git:
+    - AFNetworking
+    - Masonry
+    - MBProgressHUD
     - openssl-syswin
     - TSB
 
 SPEC CHECKSUMS:
+  AFNetworking: a4ee792b3507f62a945f58b8c59d68925d921fc2
+  Masonry: db3a162bc801438ad5560a2e373f50a77995b310
+  MBProgressHUD: ee4d576b7a2fc4f61bb27102d3304cab37b5494c
   openssl-syswin: 92ad6b7f8d05851f8703aacadde8537fb5c0f9ac
   TSB: 8bb2236f170425b132ad7d171a914ec2e7f07311
 
-PODFILE CHECKSUM: 054641bfdfeedcfefcfa382e8a4dd6db1fe47c72
+PODFILE CHECKSUM: 186f56038b554d5f3abb189d628caa7cff5b9028
 
 COCOAPODS: 1.5.3

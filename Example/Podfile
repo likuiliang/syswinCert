@@ -8,4 +8,8 @@ platform :ios, '8.0'
 target 'syswinCert' do
 
   pod 'TSB'
+  pod 'AFNetworking'
+  pod 'Masonry'
+  pod 'MBProgressHUD'
+  
 end
