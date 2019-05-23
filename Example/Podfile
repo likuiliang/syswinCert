@@ -1,0 +1,11 @@
+#use_frameworks!
+
+source 'http://172.28.6.24/ios_phenix/toon_pod_spec.git'
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '8.0'
+
+target 'syswinCert' do
+
+  pod 'TSB'
+end

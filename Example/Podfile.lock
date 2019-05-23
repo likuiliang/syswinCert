@@ -1,0 +1,20 @@
+PODS:
+  - openssl-syswin (99.12.1.1.1)
+  - TSB (0.0.66):
+    - openssl-syswin
+
+DEPENDENCIES:
+  - TSB
+
+SPEC REPOS:
+  http://172.28.6.24/ios_phenix/toon_pod_spec.git:
+    - openssl-syswin
+    - TSB
+
+SPEC CHECKSUMS:
+  openssl-syswin: 92ad6b7f8d05851f8703aacadde8537fb5c0f9ac
+  TSB: 8bb2236f170425b132ad7d171a914ec2e7f07311
+
+PODFILE CHECKSUM: 054641bfdfeedcfefcfa382e8a4dd6db1fe47c72
+
+COCOAPODS: 1.5.3
