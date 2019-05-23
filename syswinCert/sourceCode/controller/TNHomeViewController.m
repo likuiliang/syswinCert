@@ -8,6 +8,7 @@
 
 #import "TNHomeViewController.h"
 #import "TNDocument.h"
+#import "TNApplyCertController.h"
 
 @interface TNHomeViewController () <UIDocumentPickerDelegate>
 
@@ -22,9 +23,13 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
 }
 
+
+
+
 - (void)applyCerOnClick
 {
-    [self presentDocumentCloud];
+    TNApplyCertController *applyCertVC = [TNApplyCertController new];
+    [self.navigationController pushViewController:applyCertVC animated:YES];
 }
 
 - (void)presentDocumentCloud {
