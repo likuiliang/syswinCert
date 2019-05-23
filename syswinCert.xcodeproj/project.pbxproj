@@ -26,6 +26,8 @@
 		4D6EAECA22969EFB0088FE12 /* UIColor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAEC922969EFB0088FE12 /* UIColor+Extension.m */; };
 		4D6EAECD2296B4550088FE12 /* MBProgressHUD+Extend.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAECC2296B4550088FE12 /* MBProgressHUD+Extend.m */; };
 		4D6EAED02296B5640088FE12 /* TNApplyCertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAECF2296B5640088FE12 /* TNApplyCertModel.m */; };
+		4D6EAED32296B7D00088FE12 /* TNCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAED22296B7D00088FE12 /* TNCommonCell.m */; };
+		4D6EAED62296C1710088FE12 /* TNCommonCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */; };
 		7607802C6DBAEAF626D37FE6 /* libPods-syswinCert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9ADA1AD9B787817DA9C77 /* libPods-syswinCert.a */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +70,10 @@
 		4D6EAECC2296B4550088FE12 /* MBProgressHUD+Extend.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+Extend.m"; sourceTree = "<group>"; };
 		4D6EAECE2296B5640088FE12 /* TNApplyCertModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNApplyCertModel.h; sourceTree = "<group>"; };
 		4D6EAECF2296B5640088FE12 /* TNApplyCertModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNApplyCertModel.m; sourceTree = "<group>"; };
+		4D6EAED12296B7D00088FE12 /* TNCommonCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCommonCell.h; sourceTree = "<group>"; };
+		4D6EAED22296B7D00088FE12 /* TNCommonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCommonCell.m; sourceTree = "<group>"; };
+		4D6EAED42296C1710088FE12 /* TNCommonCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCommonCellItem.h; sourceTree = "<group>"; };
+		4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCommonCellItem.m; sourceTree = "<group>"; };
 		585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.release.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,6 +178,8 @@
 			children = (
 				4D6EAECE2296B5640088FE12 /* TNApplyCertModel.h */,
 				4D6EAECF2296B5640088FE12 /* TNApplyCertModel.m */,
+				4D6EAED42296C1710088FE12 /* TNCommonCellItem.h */,
+				4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -181,6 +189,8 @@
 			children = (
 				4D6EAEB922969BC10088FE12 /* TNApplyCertView.h */,
 				4D6EAEBA22969BC10088FE12 /* TNApplyCertView.m */,
+				4D6EAED12296B7D00088FE12 /* TNCommonCell.h */,
+				4D6EAED22296B7D00088FE12 /* TNCommonCell.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -312,7 +322,9 @@
 				4D6EAED02296B5640088FE12 /* TNApplyCertModel.m in Sources */,
 				4D6EAEA5229671AD0088FE12 /* TNNavigationController.m in Sources */,
 				4D6EAEB5229697950088FE12 /* TNReceiverObject.m in Sources */,
+				4D6EAED62296C1710088FE12 /* TNCommonCellItem.m in Sources */,
 				4D6EAEB822969B820088FE12 /* TNApplyCertController.m in Sources */,
+				4D6EAED32296B7D00088FE12 /* TNCommonCell.m in Sources */,
 				4D6EAEB22296970D0088FE12 /* TNIssuerObject.m in Sources */,
 				4D6EAE9522964DB70088FE12 /* main.m in Sources */,
 				4D6EAEC622969EBD0088FE12 /* TNCBaseItem.m in Sources */,

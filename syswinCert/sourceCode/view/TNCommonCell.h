@@ -1,5 +1,5 @@
 //
-//  TNApplyCertView.h
+//  TNCommonCell.h
 //  syswinCert
 //
 //  Created by likuiliang-Answer on 2019/5/23.
@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TNCBaseItemCell.h"
 
-@interface TNApplyCertView : UIView
+@interface TNCommonCell : TNCBaseItemCell
 
 @end
 
+@interface TNTextFieldCell : TNCBaseItemCell
+
+@end
