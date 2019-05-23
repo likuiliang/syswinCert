@@ -1,0 +1,1 @@
+../../../../tcardSqlite/Frameworks/tcardSqlite.framework/Versions/A/Headers/TNDBBaseManager+fts5.h

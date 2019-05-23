@@ -1,0 +1,1 @@
+../../../../tcardSqlite/Frameworks/tcardSqlite.framework/Versions/A/Headers/TNDBVersion.h

@@ -14,9 +14,17 @@ PODS:
   - AFNetworking/Serialization (99.3.3.1.0)
   - AFNetworking/UIKit (99.3.3.1.0):
     - AFNetworking/NSURLSession
+  - FMDB (99.5.2.7.3):
+    - FMDB/standard (= 99.5.2.7.3)
+  - FMDB/standard (99.5.2.7.3):
+    - TNFTSSqlite
   - Masonry (99.1.1.1.0)
   - MBProgressHUD (99.1.1.0.0)
   - openssl-syswin (99.12.1.1.1)
+  - tcardSqlite (0.1.19):
+    - FMDB
+    - TNFTSSqlite
+  - TNFTSSqlite (0.0.023)
   - TSB (0.0.66):
     - openssl-syswin
 
@@ -24,23 +32,30 @@ DEPENDENCIES:
   - AFNetworking
   - Masonry
   - MBProgressHUD
+  - tcardSqlite
   - TSB
 
 SPEC REPOS:
   http://172.28.6.24/ios_phenix/toon_pod_spec.git:
     - AFNetworking
+    - FMDB
     - Masonry
     - MBProgressHUD
     - openssl-syswin
+    - tcardSqlite
+    - TNFTSSqlite
     - TSB
 
 SPEC CHECKSUMS:
   AFNetworking: a4ee792b3507f62a945f58b8c59d68925d921fc2
+  FMDB: 47a80308a7f1ad5f31faedc0388d94a7d34ab08b
   Masonry: db3a162bc801438ad5560a2e373f50a77995b310
   MBProgressHUD: ee4d576b7a2fc4f61bb27102d3304cab37b5494c
   openssl-syswin: 92ad6b7f8d05851f8703aacadde8537fb5c0f9ac
+  tcardSqlite: 2bd3e9c7cee84c9d5ab642c9100e0bf4e2ae4a42
+  TNFTSSqlite: 450d68e15cbed9d7acef902a0919e8a0f697b705
   TSB: 8bb2236f170425b132ad7d171a914ec2e7f07311
 
-PODFILE CHECKSUM: 38b516036ad2220bf531e38d2cfc9e8fb90e0e14
+PODFILE CHECKSUM: feb025493cc25586e85d640437ea2b1084e434bf
 
 COCOAPODS: 1.5.3

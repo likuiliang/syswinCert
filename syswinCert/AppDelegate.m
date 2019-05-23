@@ -7,6 +7,8 @@
 //
 
 #import "AppDelegate.h"
+#import "TNNavigationController.h"
+#import "TNHomeViewController.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +19,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    TNHomeViewController *home = [[TNHomeViewController alloc] init];
+    TNNavigationController *navigatonVC = [[TNNavigationController alloc] initWithRootViewController:home];
+    
+    self.window.rootViewController = navigatonVC;
+    [self.window makeKeyAndVisible];
     return YES;
 }
 
