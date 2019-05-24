@@ -31,6 +31,10 @@
 
 // 验签  key:公钥  raw:签名内容  sign：签名
 + (BOOL)eccVerifySign:(NSString *)sign withRaw:(NSString *)raw withKey:(NSString *)key;
+
+// hash 值
++ (NSString *)sm3:(NSString *)data;
+
 @end
 
 

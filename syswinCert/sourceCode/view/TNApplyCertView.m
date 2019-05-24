@@ -67,6 +67,13 @@
     NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
     
     self.pkTextFieldView.textField.text = pubKey;
+    
+    
+    NSString *signString = [TSBManager eccSign:@"likuiliang" withTemail:@"syswin_tsb_pwd_initializer"];
+    
+    
+    NSString *hash = [TSBManager sm3:@"sdsdjflsdj/sdslflslks920023slksdlklfs"];
+    
 }
 
 - (TNTextFieldView *)nameTextFieldView

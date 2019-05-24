@@ -9,8 +9,10 @@
 #import "TSBManager.h"
 #include <TSB/tsbApi.h>
 #include <TSB/tsbCommonApi.h>
+#include <TSB/algApi.h>
 
 using namespace tsb;
+using namespace ALG;
 //using namespace cdtp;
 
 static NSString *_workspace;
@@ -43,8 +45,6 @@ long keyCallback(std::string tid, long code, std::string &key, tsb::tsbPwd type)
         {
             *error = [NSError errorWithDomain:NSStringFromClass(self.class) code:code userInfo:@{NSLocalizedDescriptionKey: @"tsb internal error"}];
         }
-
-
         return NO;
     }
     
@@ -64,30 +64,6 @@ long keyCallback(std::string tid, long code, std::string &key, tsb::tsbPwd type)
     return _workspace;
 }
 
-+ (NSString *)eccDecryptData:(NSString *)temail encrypto:(NSString *)encrypto
-{
-    shared_ptr<tsb::ITSBSDK> sdk = initTSBSDK(NSStr_TO_CStr(temail), TECC);
-    
-    if (sdk)
-    {
-        std::string encryptoStr = NSStr_TO_CStr(encrypto);
-        BufferArray encryptoBuffer(encryptoStr.begin(), encryptoStr.end());
-        
-        BufferArray painBuffer;
-        
-        if (ERR_SUCCESS == sdk->tsbDecryptData(tsb::TECC, encryptoBuffer, painBuffer))
-        {
-            std::string plain(painBuffer.begin(), painBuffer.end());
-            
-            return CStr_TO_NSStr(plain);
-        } else
-            return nil;
-        
-    }
-    return nil;
-    
-}
-
 + (NSString *)getEccPubKey:(NSString *)temail
 {
     shared_ptr<tsb::ITSBSDK> sdk = initTSBSDK(NSStr_TO_CStr(temail), TECC);
@@ -103,6 +79,15 @@ long keyCallback(std::string tid, long code, std::string &key, tsb::tsbPwd type)
         }
     }
     return nil;
+}
+
+// hash 值
++ (NSString *)sm3:(NSString *)data
+{
+    string md;
+    sm3(NSStr_TO_CStr(data), md);
+    
+    return CStr_TO_NSStr(md);
 }
 
 + (NSString *)eccSign:(NSString *)raw withTemail:(NSString *)temail
