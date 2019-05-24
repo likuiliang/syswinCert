@@ -28,6 +28,7 @@
 		4D6EAED02296B5640088FE12 /* TNApplyCertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAECF2296B5640088FE12 /* TNApplyCertModel.m */; };
 		4D6EAED32296B7D00088FE12 /* TNCommonCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAED22296B7D00088FE12 /* TNCommonCell.m */; };
 		4D6EAED62296C1710088FE12 /* TNCommonCellItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */; };
+		4D6EAEDA22978E4A0088FE12 /* TSBManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAED922978E4A0088FE12 /* TSBManager.mm */; };
 		7607802C6DBAEAF626D37FE6 /* libPods-syswinCert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9ADA1AD9B787817DA9C77 /* libPods-syswinCert.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,8 @@
 		4D6EAED42296C1710088FE12 /* TNCommonCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCommonCellItem.h; sourceTree = "<group>"; };
 		4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCommonCellItem.m; sourceTree = "<group>"; };
 		4D6EAED7229778EE0088FE12 /* TOONWYGlobalDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOONWYGlobalDefinition.h; sourceTree = "<group>"; };
+		4D6EAED822978E4A0088FE12 /* TSBManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSBManager.h; sourceTree = "<group>"; };
+		4D6EAED922978E4A0088FE12 /* TSBManager.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TSBManager.mm; sourceTree = "<group>"; };
 		585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.release.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +174,8 @@
 				4D6EAEC922969EFB0088FE12 /* UIColor+Extension.m */,
 				4D6EAECB2296B4550088FE12 /* MBProgressHUD+Extend.h */,
 				4D6EAECC2296B4550088FE12 /* MBProgressHUD+Extend.m */,
+				4D6EAED822978E4A0088FE12 /* TSBManager.h */,
+				4D6EAED922978E4A0088FE12 /* TSBManager.mm */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -331,6 +336,7 @@
 				4D6EAE9522964DB70088FE12 /* main.m in Sources */,
 				4D6EAEC622969EBD0088FE12 /* TNCBaseItem.m in Sources */,
 				4D6EAE8722964DB60088FE12 /* AppDelegate.m in Sources */,
+				4D6EAEDA22978E4A0088FE12 /* TSBManager.mm in Sources */,
 				4D6EAEBB22969BC10088FE12 /* TNApplyCertView.m in Sources */,
 				4D6EAECD2296B4550088FE12 /* MBProgressHUD+Extend.m in Sources */,
 				4D6EAEC422969EBD0088FE12 /* TNCBaseItemCell.m in Sources */,

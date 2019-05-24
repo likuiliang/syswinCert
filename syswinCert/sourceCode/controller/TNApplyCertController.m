@@ -8,6 +8,7 @@
 
 #import "TNApplyCertController.h"
 #import "TNApplyCertView.h"
+#import "TSBManager.h"
 
 @interface TNApplyCertController ()
 
@@ -24,6 +25,7 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.applyCertView];
     self.applyCertView.frame = self.view.bounds;
+    
 }
 
 - (TNApplyCertView *)applyCertView
