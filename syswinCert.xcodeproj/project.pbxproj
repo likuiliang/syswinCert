@@ -74,6 +74,7 @@
 		4D6EAED22296B7D00088FE12 /* TNCommonCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCommonCell.m; sourceTree = "<group>"; };
 		4D6EAED42296C1710088FE12 /* TNCommonCellItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCommonCellItem.h; sourceTree = "<group>"; };
 		4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCommonCellItem.m; sourceTree = "<group>"; };
+		4D6EAED7229778EE0088FE12 /* TOONWYGlobalDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TOONWYGlobalDefinition.h; sourceTree = "<group>"; };
 		585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.release.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -149,6 +150,7 @@
 		4D6EAE9D229671380088FE12 /* common */ = {
 			isa = PBXGroup;
 			children = (
+				4D6EAED7229778EE0088FE12 /* TOONWYGlobalDefinition.h */,
 				4D6EAEA3229671AD0088FE12 /* TNNavigationController.h */,
 				4D6EAEA4229671AD0088FE12 /* TNNavigationController.m */,
 				4D6EAEA622967DC80088FE12 /* TNDocument.h */,

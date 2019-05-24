@@ -7,9 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "TNCBaseItem.h"
 
-
-@interface TNCommonCellItem : NSObject
+@interface TNCommonCellItem : TNCBaseItem
 
 @end
 
+@interface TNTextFieldCellItem : TNCBaseItem
+
+@end

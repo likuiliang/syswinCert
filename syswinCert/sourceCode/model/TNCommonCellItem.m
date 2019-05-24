@@ -7,12 +7,12 @@
 //
 
 #import "TNCommonCellItem.h"
-#import "TNCommonCell.h"
+//#import "TNCommonView.h"
 
 @implementation TNCommonCellItem
 
 - (Class)classOfSelf {
-    return [TNCommonCell class];
+    return [NSObject class];
 }
 
 - (CGFloat)cellHeight {

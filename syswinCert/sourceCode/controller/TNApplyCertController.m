@@ -7,8 +7,11 @@
 //
 
 #import "TNApplyCertController.h"
+#import "TNApplyCertView.h"
 
 @interface TNApplyCertController ()
+
+@property (nonatomic, strong) TNApplyCertView *applyCertView;
 
 @end
 
@@ -16,7 +19,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.title = @"申请证书";
+    self.edgesForExtendedLayout = UIRectEdgeNone;
+    self.view.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:self.applyCertView];
+    self.applyCertView.frame = self.view.bounds;
+}
+
+- (TNApplyCertView *)applyCertView
+{
+    if (!_applyCertView) {
+        _applyCertView = [[TNApplyCertView alloc] init];
+    }
+    return _applyCertView;
 }
 
 @end
