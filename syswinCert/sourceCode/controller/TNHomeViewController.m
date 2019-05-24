@@ -9,6 +9,7 @@
 #import "TNHomeViewController.h"
 #import "TNDocument.h"
 #import "TNApplyCertController.h"
+#import "TSBManager.h"
 
 @interface TNHomeViewController () <UIDocumentPickerDelegate>
 
@@ -18,6 +19,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [TSBManager loginWithPwd:@"111111" withError:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Syswin Cert";
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];

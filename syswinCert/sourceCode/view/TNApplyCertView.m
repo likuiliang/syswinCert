@@ -10,6 +10,7 @@
 #import "TNCommonCell.h"
 #import "Masonry.h"
 #import "TOONWYGlobalDefinition.h"
+#import "TSBManager.h"
 
 @interface TNApplyCertView ()
 
@@ -29,6 +30,7 @@
         [self addSubview:self.pkTextFieldView];
         [self addSubview:self.buttonView];
         [self updateApplyConstraints];
+        [self setPubKey];
     }
     return self;
 }
@@ -58,6 +60,13 @@
         make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 44));
         make.left.mas_equalTo(self);
     }];
+}
+
+- (void)setPubKey
+{
+    NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
+    
+    self.pkTextFieldView.textField.text = pubKey;
 }
 
 - (TNTextFieldView *)nameTextFieldView
