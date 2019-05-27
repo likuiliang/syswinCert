@@ -10,5 +10,7 @@
 
 @interface TNApplyCertModel : NSObject
 
+- (void)requestApplyCertWithParam:(NSDictionary *)param;
+
 @end
 

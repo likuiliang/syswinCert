@@ -10,8 +10,11 @@
 #import "TNDocument.h"
 #import "TNApplyCertController.h"
 #import "TSBManager.h"
+#import "TNHomeView.h"
 
 @interface TNHomeViewController () <UIDocumentPickerDelegate>
+
+@property (nonatomic, strong) TNHomeView *homeView;
 
 @end
 
@@ -22,6 +25,7 @@
     [TSBManager loginWithPwd:@"111111" withError:nil];
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"Syswin Cert";
+    [self.view addSubview:self.homeView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
 }
 
@@ -32,6 +36,18 @@
 {
     TNApplyCertController *applyCertVC = [TNApplyCertController new];
     [self.navigationController pushViewController:applyCertVC animated:YES];
+}
+
+
+#pragma mark - 懒加载
+
+- (TNHomeView *)homeView
+{
+    if (!_homeView) {
+        _homeView = [[TNHomeView alloc] init];
+        _homeView.frame = self.view.bounds;
+    }
+    return _homeView;
 }
 
 - (void)presentDocumentCloud {

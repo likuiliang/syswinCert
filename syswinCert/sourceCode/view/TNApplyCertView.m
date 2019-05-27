@@ -11,6 +11,7 @@
 #import "Masonry.h"
 #import "TOONWYGlobalDefinition.h"
 #import "TSBManager.h"
+#import "TNApplyCertModel.h"
 
 @interface TNApplyCertView ()
 
@@ -18,7 +19,10 @@
 @property (nonatomic, strong) TNTextFieldView *emailTextFieldView;
 @property (nonatomic, strong) TNTextFieldView *pkTextFieldView;
 @property (nonatomic, strong) TNButtonView *buttonView;
+@property (nonatomic, strong) TNApplyCertModel *applyCertModel;
+
 @end
+
 
 @implementation TNApplyCertView
 
@@ -65,16 +69,20 @@
 - (void)setPubKey
 {
     NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
-    
     self.pkTextFieldView.textField.text = pubKey;
+//    NSString *signString = [TSBManager eccSign:@"likuiliang" withTemail:@"syswin_tsb_pwd_initializer"];
+//    NSString *hash = [TSBManager sm3:@"sdsdjflsdj/sdslflslks920023slksdlklfs"];
     
+    NSMutableDictionary *dictParam = [NSMutableDictionary new];
+    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@""];
+    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@""];
+    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@""];
     
-    NSString *signString = [TSBManager eccSign:@"likuiliang" withTemail:@"syswin_tsb_pwd_initializer"];
-    
-    
-    NSString *hash = [TSBManager sm3:@"sdsdjflsdj/sdslflslks920023slksdlklfs"];
+    [self.applyCertModel requestApplyCertWithParam:[NSDictionary new]];
     
 }
+
+
 
 - (TNTextFieldView *)nameTextFieldView
 {
@@ -110,6 +118,14 @@
         _buttonView = [[TNButtonView alloc] init];
     }
     return _buttonView;
+}
+
+- (TNApplyCertModel *)applyCertModel
+{
+    if (!_applyCertModel) {
+        _applyCertModel = [[TNApplyCertModel alloc] init];
+    }
+    return _applyCertModel;
 }
 
 @end
