@@ -15,6 +15,9 @@
 #define IS_ENV_Testing [TN_ENV_Domain isEqualToString:@"t200."]
 #define IS_ENV_PreOnline [TN_ENV_Domain isEqualToString:@"p100."]
 
+#define KDocumentDirectory  ([NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject])
+
+#define KLocalSourceFilePath ([KDocumentDirectory stringByAppendingPathComponent:@"syswinCert"])
 
 #import "UIColor+Extension.h"
 #import "Masonry.h"

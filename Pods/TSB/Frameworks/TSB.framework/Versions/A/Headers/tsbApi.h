@@ -162,8 +162,8 @@ namespace tsb
 	/*
 	common symmetrical encry interface
 	*/
-	int64_t tsbSYEncryptData(tsbCryptAlgType crypt, const BufferArray &key,   const BufferArray &plainText, BufferArray & buffer);
-	int64_t tsbSYDecryptData(tsbCryptAlgType crypt, const BufferArray &key,   const BufferArray &secBuffer, BufferArray & plainText);
+	int64_t tsbSYEncryptData(tsbCryptAlgType crypt, const BufferArray &key,   const BufferArray &plainText, BufferArray & buffer, const bool enBase64 = true);
+	int64_t tsbSYDecryptData(tsbCryptAlgType crypt, const BufferArray &key,   const BufferArray &secBuffer, BufferArray & plainText, const bool enBase64 = true);
 	/*
 	get backfile info,std::map<std::string, tsbPCHeader> key: filepath,value: info
 	*/

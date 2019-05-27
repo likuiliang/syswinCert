@@ -70,18 +70,30 @@
 {
     NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
     self.pkTextFieldView.textField.text = pubKey;
-//    NSString *signString = [TSBManager eccSign:@"likuiliang" withTemail:@"syswin_tsb_pwd_initializer"];
-//    NSString *hash = [TSBManager sm3:@"sdsdjflsdj/sdslflslks920023slksdlklfs"];
-    
-    NSMutableDictionary *dictParam = [NSMutableDictionary new];
-    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@""];
-    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@""];
-    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@""];
-    
-    [self.applyCertModel requestApplyCertWithParam:[NSDictionary new]];
-    
 }
 
+- (void)applyCertOnClick
+{
+    NSMutableDictionary *dictParam = [NSMutableDictionary new];
+    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@"userName"];
+    [dictParam setValue:self.emailTextFieldView.textField.text forKey:@"userEmail"];
+    [dictParam setValue:self.pkTextFieldView.textField.text forKey:@"publicKey"];
+    [dictParam setValue:@"image" forKey:@"userImage"];
+    
+    [self.applyCertModel requestApplyCertWithParam:dictParam];
+    
+//    NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
+//
+//
+//    NSString *signString = [TSBManager eccSign:@"" withTemail:@"syswin_tsb_pwd_initializer"];
+//
+//    bool isTure = [TSBManager eccVerifySign:signString withRaw:@"likuiliang" withKey:pubKey];
+    
+    //    NSLog(@"string:%@----pubkey:%@", string, pubKey);
+//    NSLog(@"string:----pubkey:%@", pubKey);
+    
+    
+}
 
 
 - (TNTextFieldView *)nameTextFieldView
@@ -116,6 +128,8 @@
 {
     if (!_buttonView) {
         _buttonView = [[TNButtonView alloc] init];
+        [_buttonView.buttonView addTarget:self action:@selector(applyCertOnClick) forControlEvents:UIControlEventTouchUpInside];
+
     }
     return _buttonView;
 }
@@ -129,3 +143,11 @@
 }
 
 @end
+
+/*
+ //    NSString *signString = [TSBManager eccSign:@"likuiliang" withTemail:@"syswin_tsb_pwd_initializer"];
+ //    NSString *hash = [TSBManager sm3:@"sdsdjflsdj/sdslflslks920023slksdlklfs"];
+ 
+ //    NSData *basicAuthCredentials = UIImagePNGRepresentation([UIImage imageNamed:@""]);
+ //    NSString *base64AuthCredentials = [basicAuthCredentials base64EncodedStringWithOptions:(NSDataBase64EncodingOptions)0];
+ */

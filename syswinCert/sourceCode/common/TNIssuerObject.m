@@ -10,4 +10,8 @@
 
 @implementation TNIssuerObject
 
++ (NSString *)primaryKey {
+    return @"issuerPK";
+}
+
 @end

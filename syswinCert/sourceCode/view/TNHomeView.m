@@ -9,6 +9,7 @@
 #import "TNHomeView.h"
 #import "TOONWYGlobalDefinition.h"
 
+
 @interface TNHomeView () <UIScrollViewDelegate>
 
 @property (nonatomic, strong) UIScrollView *homeScrollView;
@@ -42,6 +43,11 @@
     }];
 }
 
+- (void)icoundBtnOnClick
+{
+    [self.delegate homeViewImportIcoundOnClick];
+}
+
 #pragma mark - 懒加载
 
 - (UIScrollView *)homeScrollView
@@ -67,6 +73,7 @@
         [_icoundBtn setTitle:@"导入证书" forState:UIControlStateNormal];
         [_icoundBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _icoundBtn.backgroundColor = [UIColor colorWithHEXString:@"#355ACF"];
+        [_icoundBtn addTarget:self action:@selector(icoundBtnOnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _icoundBtn;
 }

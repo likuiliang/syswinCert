@@ -8,10 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-NS_ASSUME_NONNULL_BEGIN
+@protocol TNHomeViewDelegate <NSObject>
 
-@interface TNHomeView : UIView
+- (void)homeViewImportIcoundOnClick;
 
 @end
 
-NS_ASSUME_NONNULL_END
+@interface TNHomeView : UIView
+
+@property (nonatomic, weak) id<TNHomeViewDelegate> delegate;
+
+@end
+
+

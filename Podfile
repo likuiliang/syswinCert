@@ -15,5 +15,7 @@ target 'syswinCert' do
     pod 'Masonry'
     pod 'MBProgressHUD'
     pod 'tcardSqlite'
+    pod 'TJson'
+    pod 'AFNetworking+AutoRetry'
 
 end

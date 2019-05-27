@@ -10,8 +10,9 @@
 
 @interface TNReceiverObject : TNDBBaseObject
 
-@property (nonatomic, copy) NSString *receiverPk;
-@property (nonatomic, copy) NSString *signFile;
+@property (nonatomic, copy) NSString *receiverPK; // 接受者pk
+@property (nonatomic, copy) NSString *signFile;  // 文件名称
+@property (nonatomic, copy) NSString *issuerPK;  // 文件名称
 
 @end
 

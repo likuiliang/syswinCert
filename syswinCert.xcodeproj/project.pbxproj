@@ -32,6 +32,7 @@
 		4DE382882297E7D600B2BB24 /* TNNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE382872297E7D600B2BB24 /* TNNetWorkManager.m */; };
 		4DE3828B2297E9F700B2BB24 /* NSDictionary+NSNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3828A2297E9F700B2BB24 /* NSDictionary+NSNull.m */; };
 		4DE3828E229B73CB00B2BB24 /* TNHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3828D229B73CB00B2BB24 /* TNHomeView.m */; };
+		4DE38291229B886C00B2BB24 /* TNSqlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE38290229B886C00B2BB24 /* TNSqlManager.m */; };
 		7607802C6DBAEAF626D37FE6 /* libPods-syswinCert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9ADA1AD9B787817DA9C77 /* libPods-syswinCert.a */; };
 /* End PBXBuildFile section */
 
@@ -87,6 +88,8 @@
 		4DE3828A2297E9F700B2BB24 /* NSDictionary+NSNull.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+NSNull.m"; sourceTree = "<group>"; };
 		4DE3828C229B73CB00B2BB24 /* TNHomeView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNHomeView.h; sourceTree = "<group>"; };
 		4DE3828D229B73CB00B2BB24 /* TNHomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNHomeView.m; sourceTree = "<group>"; };
+		4DE3828F229B886C00B2BB24 /* TNSqlManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSqlManager.h; sourceTree = "<group>"; };
+		4DE38290229B886C00B2BB24 /* TNSqlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSqlManager.m; sourceTree = "<group>"; };
 		585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.release.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +192,8 @@
 				4DE382872297E7D600B2BB24 /* TNNetWorkManager.m */,
 				4DE382892297E9F700B2BB24 /* NSDictionary+NSNull.h */,
 				4DE3828A2297E9F700B2BB24 /* NSDictionary+NSNull.m */,
+				4DE3828F229B886C00B2BB24 /* TNSqlManager.h */,
+				4DE38290229B886C00B2BB24 /* TNSqlManager.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -340,6 +345,7 @@
 				4DE382882297E7D600B2BB24 /* TNNetWorkManager.m in Sources */,
 				4D6EAEA822967DC80088FE12 /* TNDocument.m in Sources */,
 				4DE3828B2297E9F700B2BB24 /* NSDictionary+NSNull.m in Sources */,
+				4DE38291229B886C00B2BB24 /* TNSqlManager.m in Sources */,
 				4D6EAEC722969EBD0088FE12 /* TNCSectionModel.m in Sources */,
 				4D6EAEA22296717B0088FE12 /* TNHomeViewController.m in Sources */,
 				4DE3828E229B73CB00B2BB24 /* TNHomeView.m in Sources */,
@@ -504,6 +510,7 @@
 				CODE_SIGN_ENTITLEMENTS = syswinCert/syswinCert.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TLWP697Z5D;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = syswinCert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -525,6 +532,7 @@
 				CODE_SIGN_ENTITLEMENTS = syswinCert/syswinCert.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = syswinCert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (

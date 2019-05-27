@@ -10,4 +10,8 @@
 
 @implementation TNReceiverObject
 
++ (NSString *)primaryKey {
+    return @"receiverPk";
+}
+
 @end

@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "TNNavigationController.h"
 #import "TNHomeViewController.h"
+#import "TNSqlManager.h"
 
 @interface AppDelegate ()
 
@@ -22,7 +23,7 @@
     
     TNHomeViewController *home = [[TNHomeViewController alloc] init];
     TNNavigationController *navigatonVC = [[TNNavigationController alloc] initWithRootViewController:home];
-    
+    [[TNSqlManager instance] registerCertDBWithUUID:nil];
     self.window.rootViewController = navigatonVC;
     [self.window makeKeyAndVisible];
     return YES;

@@ -1,18 +1,27 @@
 PODS:
-  - AFNetworking (99.3.3.1.0):
-    - AFNetworking/NSURLSession (= 99.3.3.1.0)
-    - AFNetworking/Reachability (= 99.3.3.1.0)
-    - AFNetworking/Security (= 99.3.3.1.0)
-    - AFNetworking/Serialization (= 99.3.3.1.0)
-    - AFNetworking/UIKit (= 99.3.3.1.0)
-  - AFNetworking/NSURLSession (99.3.3.1.0):
+  - AFNetworking (2.7.0):
+    - AFNetworking/NSURLConnection (= 2.7.0)
+    - AFNetworking/NSURLSession (= 2.7.0)
+    - AFNetworking/Reachability (= 2.7.0)
+    - AFNetworking/Security (= 2.7.0)
+    - AFNetworking/Serialization (= 2.7.0)
+    - AFNetworking/UIKit (= 2.7.0)
+  - "AFNetworking+AutoRetry (0.0.5)":
+    - AFNetworking (~> 2)
+    - ObjcAssociatedObjectHelpers
+  - AFNetworking/NSURLConnection (2.7.0):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (99.3.3.1.0)
-  - AFNetworking/Security (99.3.3.1.0)
-  - AFNetworking/Serialization (99.3.3.1.0)
-  - AFNetworking/UIKit (99.3.3.1.0):
+  - AFNetworking/NSURLSession (2.7.0):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.7.0)
+  - AFNetworking/Security (2.7.0)
+  - AFNetworking/Serialization (2.7.0)
+  - AFNetworking/UIKit (2.7.0):
+    - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
   - FMDB (99.5.2.7.3):
     - FMDB/standard (= 99.5.2.7.3)
@@ -20,42 +29,58 @@ PODS:
     - TNFTSSqlite
   - Masonry (99.1.1.1.0)
   - MBProgressHUD (99.1.1.0.0)
+  - ObjcAssociatedObjectHelpers (2.0.1):
+    - ObjcAssociatedObjectHelpers/Core (= 2.0.1)
+    - "ObjcAssociatedObjectHelpers/NSObject+Dictionary (= 2.0.1)"
+  - ObjcAssociatedObjectHelpers/Core (2.0.1)
+  - "ObjcAssociatedObjectHelpers/NSObject+Dictionary (2.0.1)":
+    - ObjcAssociatedObjectHelpers/Core
   - openssl-syswin (99.12.1.1.1)
   - tcardSqlite (0.1.19):
     - FMDB
     - TNFTSSqlite
+  - TJson (0.2.0)
   - TNFTSSqlite (0.0.023)
-  - TSB (0.0.66):
+  - TSB (0.0.67):
     - openssl-syswin
 
 DEPENDENCIES:
   - AFNetworking
+  - "AFNetworking+AutoRetry"
   - Masonry
   - MBProgressHUD
   - tcardSqlite
+  - TJson
   - TSB
 
 SPEC REPOS:
   http://172.28.6.24/ios_phenix/toon_pod_spec.git:
-    - AFNetworking
     - FMDB
     - Masonry
     - MBProgressHUD
     - openssl-syswin
     - tcardSqlite
+    - TJson
     - TNFTSSqlite
     - TSB
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - "AFNetworking+AutoRetry"
+    - ObjcAssociatedObjectHelpers
 
 SPEC CHECKSUMS:
-  AFNetworking: a4ee792b3507f62a945f58b8c59d68925d921fc2
+  AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
+  "AFNetworking+AutoRetry": 5987ec96155e58fe356f1a3e91e79e5f3be6296a
   FMDB: 47a80308a7f1ad5f31faedc0388d94a7d34ab08b
   Masonry: db3a162bc801438ad5560a2e373f50a77995b310
   MBProgressHUD: ee4d576b7a2fc4f61bb27102d3304cab37b5494c
+  ObjcAssociatedObjectHelpers: 686c291f292c26a49b9b1fa7d58130a8d35d59d2
   openssl-syswin: 92ad6b7f8d05851f8703aacadde8537fb5c0f9ac
   tcardSqlite: 2bd3e9c7cee84c9d5ab642c9100e0bf4e2ae4a42
+  TJson: 0d46b6f2dc48e12539c0af41a48fefaa2d6b8c31
   TNFTSSqlite: 450d68e15cbed9d7acef902a0919e8a0f697b705
-  TSB: 8bb2236f170425b132ad7d171a914ec2e7f07311
+  TSB: 801598146fc470a7e25c02d625fc0356b97f4b15
 
-PODFILE CHECKSUM: feb025493cc25586e85d640437ea2b1084e434bf
+PODFILE CHECKSUM: 729bd6145b36d21c74b1d3e65fac54a863b50f5b
 
 COCOAPODS: 1.5.3

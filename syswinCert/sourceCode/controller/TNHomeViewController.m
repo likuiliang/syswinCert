@@ -11,8 +11,12 @@
 #import "TNApplyCertController.h"
 #import "TSBManager.h"
 #import "TNHomeView.h"
+#import "TOONWYGlobalDefinition.h"
+#import "TNSqlManager.h"
+#import <TJson/NSStringTNJson.h>
+#import <TJson/NSDictionaryTNJson.h>
 
-@interface TNHomeViewController () <UIDocumentPickerDelegate>
+@interface TNHomeViewController () <UIDocumentPickerDelegate,TNHomeViewDelegate>
 
 @property (nonatomic, strong) TNHomeView *homeView;
 
@@ -27,15 +31,82 @@
     self.title = @"Syswin Cert";
     [self.view addSubview:self.homeView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
+    
+    TNIssuerObject *issuer = [TNIssuerObject new];
+    issuer.issuerPk = @"1111111";
+    issuer.name = @"test";
+    issuer.avatar = @"sdfll";
+    [[TNSqlManager instance] updateIssuerModel:issuer];
+    
+    NSArray *array = [[TNSqlManager instance] queryIssuerWithName:nil];
+    
 }
-
-
-
 
 - (void)applyCerOnClick
 {
     TNApplyCertController *applyCertVC = [TNApplyCertController new];
     [self.navigationController pushViewController:applyCertVC animated:YES];
+}
+
+#pragma mark - TNHomeViewDelegate
+
+- (void)homeViewImportIcoundOnClick
+{
+    NSArray *documentTypes = @[@"public.content", @"public.text", @"public.source-code ", @"public.image", @"public.audiovisual-content", @"com.adobe.pdf", @"com.apple.keynote.key", @"com.microsoft.word.doc", @"com.microsoft.excel.xls", @"com.microsoft.powerpoint.ppt",@"public.json",@"public.hpc"];
+    //    UIDocumentBrowserViewController
+    UIDocumentPickerViewController *documentPickerViewController = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:documentTypes inMode:UIDocumentPickerModeOpen];
+    documentPickerViewController.delegate = self;
+    documentPickerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:documentPickerViewController animated:YES completion:nil];
+}
+
+#pragma mark - UIDocumentPickerDelegate
+//    当需要访问不在 App 自身的沙盒或者自身共享容器里的资源时，需要申请权限访问，使用到 NSURL 的两个方法:
+//    开始安全访问：- (BOOL)startAccessingSecurityScopedResource
+//    停止安全访问：- (void)stopAccessingSecurityScopedResource
+- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
+    
+    BOOL fileUrlAuthozied = [url startAccessingSecurityScopedResource];
+    if(fileUrlAuthozied){
+        NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
+        NSError *error;
+        __block NSData *fileData;
+        [fileCoordinator coordinateReadingItemAtURL:url options:0 error:&error byAccessor:^(NSURL *newURL) {
+            fileData = [NSData dataWithContentsOfURL:newURL];
+            NSString *fileName = [newURL lastPathComponent];
+            NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:fileName];
+            //写到本地
+            [self writeSourceFileData:fileData toFilePath:localFilePath];
+        }];
+        
+        [url stopAccessingSecurityScopedResource];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }else{
+        //Error handling
+    }
+}
+
+- (void)writeSourceFileData:(NSData *)sourceData toFilePath:(NSString *)filePath{
+    if (![[NSFileManager defaultManager] fileExistsAtPath:KLocalSourceFilePath]) {
+        [[NSFileManager defaultManager] createDirectoryAtPath:KLocalSourceFilePath withIntermediateDirectories:YES attributes:nil error:nil];
+    }
+    [sourceData writeToFile:filePath atomically:YES];
+    // 写入本地后，把相关内容存入数据库
+    
+    NSError *error;
+    NSString *stringJosn = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    
+    NSLog(@"dict-----%@",stringJosn);
+    
+    NSMutableDictionary *dictMu = [[stringJosn tn_JSONObject] mutableCopy];
+    NSString *signString = dictMu[@"signature"][@"issueSign"];
+    [dictMu removeObjectForKey:@"signature"];
+    
+    NSString *string = [dictMu tn_JSONString];
+    
+   BOOL isTure = [TSBManager eccVerifySign:signString withRaw:string withKey:@"MIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQAX9V0rsnOqPu8jXeVtRL5hNtk41Y0GKOM3PRSl0ESTuyJLLWhAWl25iCRty9VU-8-HDJDmR1ioiTTqplSXo2-QKQA2M0olVPvNlFGLCD7TfVPYk1Ha3lG2M9LSAhCRv2GYjLwMG4DV6cg68KtNI99KtXdJAP4tHRbG6kCUOVxFb2RJtU"];
+    
+    
 }
 
 
@@ -46,55 +117,10 @@
     if (!_homeView) {
         _homeView = [[TNHomeView alloc] init];
         _homeView.frame = self.view.bounds;
+        _homeView.delegate = self;
     }
     return _homeView;
 }
 
-- (void)presentDocumentCloud {
-    NSArray *documentTypes = @[@"public.content", @"public.text", @"public.source-code ", @"public.image", @"public.audiovisual-content", @"com.adobe.pdf", @"com.apple.keynote.key", @"com.microsoft.word.doc", @"com.microsoft.excel.xls", @"com.microsoft.powerpoint.ppt",@"public.json"];
-    //    UIDocumentBrowserViewController
-    UIDocumentPickerViewController *documentPickerViewController = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:documentTypes inMode:UIDocumentPickerModeOpen];
-    documentPickerViewController.delegate = self;
-    documentPickerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
-    [self presentViewController:documentPickerViewController animated:YES completion:nil];
-}
-
-
-
-#pragma mark - UIDocumentPickerDelegate
-//    当需要访问不在 App 自身的沙盒或者自身共享容器里的资源时，需要申请权限访问，使用到 NSURL 的两个方法:
-//    开始安全访问：- (BOOL)startAccessingSecurityScopedResource
-//    停止安全访问：- (void)stopAccessingSecurityScopedResource
-- (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
-    BOOL fileUrlAuthozied = [url startAccessingSecurityScopedResource];
-    if(fileUrlAuthozied){
-        TNDocument *document = [[TNDocument alloc] initWithFileURL:url];
-        [document openWithCompletionHandler:^(BOOL success) {
-            NSData *ddd = document.data;
-            NSLog(@"dddddd----%@",ddd);
-        }];
-//        NSFileCoordinator *fileCoordinator = [[NSFileCoordinator alloc] init];
-//        NSError *error;
-//        __block NSData *fileData;
-        
-//        [fileCoordinator coordinateReadingItemAtURL:url options:0 error:&error byAccessor:^(NSURL *newURL) {
-//
-//            fileData = [NSData dataWithContentsOfURL:newURL];
-//            NSString *fileName = [newURL lastPathComponent];
-////            NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:fileName];
-//            //写到本地
-////            [[TSZFileOperateManager sharedInstance] writeSourceFileData:fileData toFilePath:localFilePath];
-//            //处理后续流程
-////            [TSZBusinessLogicManager pk_createDBEsrModelWithLocalSourceFilePath:localFilePath];
-//        }];
-//
-//        [url stopAccessingSecurityScopedResource];
-        
-        [self dismissViewControllerAnimated:YES completion:nil];
-//        [[NSNotificationCenter defaultCenter]postNotificationName:KSwitchToFileListNotificationKey object:nil];
-    }else{
-        //Error handling
-    }
-}
-
 @end
+
