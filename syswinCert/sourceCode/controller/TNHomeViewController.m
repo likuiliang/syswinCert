@@ -13,8 +13,7 @@
 #import "TNHomeView.h"
 #import "TOONWYGlobalDefinition.h"
 #import "TNSqlManager.h"
-#import <TJson/NSStringTNJson.h>
-#import <TJson/NSDictionaryTNJson.h>
+#import "TNCertManager.h"
 
 @interface TNHomeViewController () <UIDocumentPickerDelegate,TNHomeViewDelegate>
 
@@ -93,20 +92,7 @@
     [sourceData writeToFile:filePath atomically:YES];
     // 写入本地后，把相关内容存入数据库
     
-    NSError *error;
-    NSString *stringJosn = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
-    
-    NSLog(@"dict-----%@",stringJosn);
-    
-    NSMutableDictionary *dictMu = [[stringJosn tn_JSONObject] mutableCopy];
-    NSString *signString = dictMu[@"signature"][@"issueSign"];
-    [dictMu removeObjectForKey:@"signature"];
-    
-    NSString *string = [dictMu tn_JSONString];
-    
-   BOOL isTure = [TSBManager eccVerifySign:signString withRaw:string withKey:@"MIGbMBAGByqGSM49AgEGBSuBBAAjA4GGAAQAX9V0rsnOqPu8jXeVtRL5hNtk41Y0GKOM3PRSl0ESTuyJLLWhAWl25iCRty9VU-8-HDJDmR1ioiTTqplSXo2-QKQA2M0olVPvNlFGLCD7TfVPYk1Ha3lG2M9LSAhCRv2GYjLwMG4DV6cg68KtNI99KtXdJAP4tHRbG6kCUOVxFb2RJtU"];
-    
-    
+    [[TNCertManager instance] verifyCertSignFilePath:filePath];
 }
 
 

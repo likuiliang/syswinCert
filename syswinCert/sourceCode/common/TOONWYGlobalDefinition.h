@@ -21,6 +21,9 @@
 
 #import "UIColor+Extension.h"
 #import "Masonry.h"
+#import <TJson/NSStringTNJson.h>
+#import <TJson/NSDictionaryTNJson.h>
+
 //-------------------------------------公用方法定义---------------------------------------------------
 #define WEAKSELF typeof(self) __weak weakSelf = self;
 #define STRONGSELF typeof(weakSelf) __strong strongSelf = weakSelf;

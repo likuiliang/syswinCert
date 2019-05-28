@@ -82,15 +82,6 @@
     
     [self.applyCertModel requestApplyCertWithParam:dictParam];
     
-//    NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
-//
-//
-//    NSString *signString = [TSBManager eccSign:@"" withTemail:@"syswin_tsb_pwd_initializer"];
-//
-//    bool isTure = [TSBManager eccVerifySign:signString withRaw:@"likuiliang" withKey:pubKey];
-    
-    //    NSLog(@"string:%@----pubkey:%@", string, pubKey);
-//    NSLog(@"string:----pubkey:%@", pubKey);
     
     
 }

@@ -33,6 +33,12 @@
 		4DE3828B2297E9F700B2BB24 /* NSDictionary+NSNull.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3828A2297E9F700B2BB24 /* NSDictionary+NSNull.m */; };
 		4DE3828E229B73CB00B2BB24 /* TNHomeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE3828D229B73CB00B2BB24 /* TNHomeView.m */; };
 		4DE38291229B886C00B2BB24 /* TNSqlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE38290229B886C00B2BB24 /* TNSqlManager.m */; };
+		4DE38294229BE75300B2BB24 /* TNCertManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DE38293229BE75300B2BB24 /* TNCertManager.m */; };
+		4DEDF101229C083A0044DC05 /* TNHashCertificateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF100229C083A0044DC05 /* TNHashCertificateModel.m */; };
+		4DEDF104229C085F0044DC05 /* TNCertModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF103229C085F0044DC05 /* TNCertModel.m */; };
+		4DEDF107229C08730044DC05 /* TNIssuerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF106229C08730044DC05 /* TNIssuerModel.m */; };
+		4DEDF10A229C088C0044DC05 /* TNReceiverModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF109229C088C0044DC05 /* TNReceiverModel.m */; };
+		4DEDF10D229C08A80044DC05 /* TNSignatureModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF10C229C08A80044DC05 /* TNSignatureModel.m */; };
 		7607802C6DBAEAF626D37FE6 /* libPods-syswinCert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9ADA1AD9B787817DA9C77 /* libPods-syswinCert.a */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +96,18 @@
 		4DE3828D229B73CB00B2BB24 /* TNHomeView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNHomeView.m; sourceTree = "<group>"; };
 		4DE3828F229B886C00B2BB24 /* TNSqlManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSqlManager.h; sourceTree = "<group>"; };
 		4DE38290229B886C00B2BB24 /* TNSqlManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSqlManager.m; sourceTree = "<group>"; };
+		4DE38292229BE75300B2BB24 /* TNCertManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCertManager.h; sourceTree = "<group>"; };
+		4DE38293229BE75300B2BB24 /* TNCertManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCertManager.m; sourceTree = "<group>"; };
+		4DEDF0FF229C083A0044DC05 /* TNHashCertificateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNHashCertificateModel.h; sourceTree = "<group>"; };
+		4DEDF100229C083A0044DC05 /* TNHashCertificateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNHashCertificateModel.m; sourceTree = "<group>"; };
+		4DEDF102229C085F0044DC05 /* TNCertModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCertModel.h; sourceTree = "<group>"; };
+		4DEDF103229C085F0044DC05 /* TNCertModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCertModel.m; sourceTree = "<group>"; };
+		4DEDF105229C08730044DC05 /* TNIssuerModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNIssuerModel.h; sourceTree = "<group>"; };
+		4DEDF106229C08730044DC05 /* TNIssuerModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNIssuerModel.m; sourceTree = "<group>"; };
+		4DEDF108229C088C0044DC05 /* TNReceiverModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNReceiverModel.h; sourceTree = "<group>"; };
+		4DEDF109229C088C0044DC05 /* TNReceiverModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNReceiverModel.m; sourceTree = "<group>"; };
+		4DEDF10B229C08A80044DC05 /* TNSignatureModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNSignatureModel.h; sourceTree = "<group>"; };
+		4DEDF10C229C08A80044DC05 /* TNSignatureModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNSignatureModel.m; sourceTree = "<group>"; };
 		585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.release.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -194,6 +212,8 @@
 				4DE3828A2297E9F700B2BB24 /* NSDictionary+NSNull.m */,
 				4DE3828F229B886C00B2BB24 /* TNSqlManager.h */,
 				4DE38290229B886C00B2BB24 /* TNSqlManager.m */,
+				4DE38292229BE75300B2BB24 /* TNCertManager.h */,
+				4DE38293229BE75300B2BB24 /* TNCertManager.m */,
 			);
 			path = common;
 			sourceTree = "<group>";
@@ -205,6 +225,16 @@
 				4D6EAECF2296B5640088FE12 /* TNApplyCertModel.m */,
 				4D6EAED42296C1710088FE12 /* TNCommonCellItem.h */,
 				4D6EAED52296C1710088FE12 /* TNCommonCellItem.m */,
+				4DEDF0FF229C083A0044DC05 /* TNHashCertificateModel.h */,
+				4DEDF100229C083A0044DC05 /* TNHashCertificateModel.m */,
+				4DEDF102229C085F0044DC05 /* TNCertModel.h */,
+				4DEDF103229C085F0044DC05 /* TNCertModel.m */,
+				4DEDF105229C08730044DC05 /* TNIssuerModel.h */,
+				4DEDF106229C08730044DC05 /* TNIssuerModel.m */,
+				4DEDF108229C088C0044DC05 /* TNReceiverModel.h */,
+				4DEDF109229C088C0044DC05 /* TNReceiverModel.m */,
+				4DEDF10B229C08A80044DC05 /* TNSignatureModel.h */,
+				4DEDF10C229C08A80044DC05 /* TNSignatureModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -279,7 +309,7 @@
 								enabled = 0;
 							};
 							com.apple.iCloud = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -347,22 +377,28 @@
 				4DE3828B2297E9F700B2BB24 /* NSDictionary+NSNull.m in Sources */,
 				4DE38291229B886C00B2BB24 /* TNSqlManager.m in Sources */,
 				4D6EAEC722969EBD0088FE12 /* TNCSectionModel.m in Sources */,
+				4DEDF104229C085F0044DC05 /* TNCertModel.m in Sources */,
 				4D6EAEA22296717B0088FE12 /* TNHomeViewController.m in Sources */,
 				4DE3828E229B73CB00B2BB24 /* TNHomeView.m in Sources */,
 				4D6EAECA22969EFB0088FE12 /* UIColor+Extension.m in Sources */,
 				4D6EAED02296B5640088FE12 /* TNApplyCertModel.m in Sources */,
+				4DEDF10D229C08A80044DC05 /* TNSignatureModel.m in Sources */,
 				4D6EAEA5229671AD0088FE12 /* TNNavigationController.m in Sources */,
 				4D6EAEB5229697950088FE12 /* TNReceiverObject.m in Sources */,
+				4DEDF10A229C088C0044DC05 /* TNReceiverModel.m in Sources */,
 				4D6EAED62296C1710088FE12 /* TNCommonCellItem.m in Sources */,
 				4D6EAEB822969B820088FE12 /* TNApplyCertController.m in Sources */,
 				4D6EAED32296B7D00088FE12 /* TNCommonCell.m in Sources */,
 				4D6EAEB22296970D0088FE12 /* TNIssuerObject.m in Sources */,
 				4D6EAE9522964DB70088FE12 /* main.m in Sources */,
 				4D6EAEC622969EBD0088FE12 /* TNCBaseItem.m in Sources */,
+				4DEDF107229C08730044DC05 /* TNIssuerModel.m in Sources */,
 				4D6EAE8722964DB60088FE12 /* AppDelegate.m in Sources */,
 				4D6EAEDA22978E4A0088FE12 /* TSBManager.mm in Sources */,
+				4DEDF101229C083A0044DC05 /* TNHashCertificateModel.m in Sources */,
 				4D6EAEBB22969BC10088FE12 /* TNApplyCertView.m in Sources */,
 				4D6EAECD2296B4550088FE12 /* MBProgressHUD+Extend.m in Sources */,
+				4DE38294229BE75300B2BB24 /* TNCertManager.m in Sources */,
 				4D6EAEC422969EBD0088FE12 /* TNCBaseItemCell.m in Sources */,
 				4D6EAEC522969EBD0088FE12 /* TNCCompatible.m in Sources */,
 			);
@@ -507,7 +543,6 @@
 			baseConfigurationReference = 585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = syswinCert/syswinCert.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TLWP697Z5D;
 				ENABLE_BITCODE = NO;
@@ -519,7 +554,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systoon.enterprise.syswinCert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = com.systoon.enterprise.syswinCert;
+				PROVISIONING_PROFILE_SPECIFIER = 6ceng.Common.DeveloperCer;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -529,7 +564,6 @@
 			baseConfigurationReference = F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = syswinCert/syswinCert.entitlements;
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;

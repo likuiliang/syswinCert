@@ -12,7 +12,10 @@
 
 @property (nonatomic, copy) NSString *receiverPK; // 接受者pk
 @property (nonatomic, copy) NSString *signFile;  // 文件名称
-@property (nonatomic, copy) NSString *issuerPK;  // 文件名称
+@property (nonatomic, copy) NSString *issuerPK;  // 发布者PK
+@property (nonatomic, copy) NSString *certName;  // 发布者PK
+@property (nonatomic, copy) NSString *certTime;  // 发布者PK
+@property (nonatomic, copy) NSString *certImage;  // 发布者PK
 
 @end
 
