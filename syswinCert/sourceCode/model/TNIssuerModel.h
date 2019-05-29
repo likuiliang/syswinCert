@@ -8,10 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface TNIssuerModel : NSObject
 
+@property (nonatomic, copy) NSString *issuerCode;
+@property (nonatomic, copy) NSString *issuerEmail;
+@property (nonatomic, copy) NSString *issuerId;
+@property (nonatomic, copy) NSString *issuerImage;
+@property (nonatomic, copy) NSString *issuerName;
+@property (nonatomic, copy) NSString *issuerPublicKey;
+@property (nonatomic, copy) NSString *issuerType;
+@property (nonatomic, copy) NSString *issuerUrl;
+
 @end
 
-NS_ASSUME_NONNULL_END

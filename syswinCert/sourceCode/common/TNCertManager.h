@@ -13,7 +13,7 @@
 
 + (id)instance;
 
-- (void)handleCertificateFilePath:(NSString *)filePath;
+- (void)saveCertificateWithFilePath:(NSString *)filePath;
 
 - (void)verifyCertSignFilePath:(NSString *)filePath;
 

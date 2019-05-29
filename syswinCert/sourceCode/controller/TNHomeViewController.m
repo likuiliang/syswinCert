@@ -23,21 +23,29 @@
 
 @implementation TNHomeViewController
 
+- (id)init {
+    if (self = [super init]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [TSBManager loginWithPwd:@"111111" withError:nil];
     self.view.backgroundColor = [UIColor whiteColor];
-    self.title = @"Syswin Cert";
+    self.title = @"发证机构";
     [self.view addSubview:self.homeView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
     
-    TNIssuerObject *issuer = [TNIssuerObject new];
-    issuer.issuerPk = @"1111111";
-    issuer.name = @"test";
-    issuer.avatar = @"sdfll";
-    [[TNSqlManager instance] updateIssuerModel:issuer];
-    
+//    TNIssuerObject *issuer = [TNIssuerObject new];
+//    issuer.issuerPk = @"1111111";
+//    issuer.name = @"test";
+//    issuer.avatar = @"sdfll";
+//    [[TNSqlManager instance] updateIssuerModel:issuer];
+//
     NSArray *array = [[TNSqlManager instance] queryIssuerWithName:nil];
+    [self.homeView updateTableViewWithDataSource:array];
     
 }
 
@@ -92,7 +100,7 @@
     [sourceData writeToFile:filePath atomically:YES];
     // 写入本地后，把相关内容存入数据库
     
-    [[TNCertManager instance] verifyCertSignFilePath:filePath];
+    [[TNCertManager instance] saveCertificateWithFilePath:filePath];;
 }
 
 
@@ -101,8 +109,7 @@
 - (TNHomeView *)homeView
 {
     if (!_homeView) {
-        _homeView = [[TNHomeView alloc] init];
-        _homeView.frame = self.view.bounds;
+        _homeView = [[TNHomeView alloc] initWithFrame:self.view.bounds];
         _homeView.delegate = self;
     }
     return _homeView;

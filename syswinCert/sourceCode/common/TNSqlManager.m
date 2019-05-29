@@ -74,8 +74,9 @@
     NSArray *receiverArray = [NSArray array];
     if (!issuerPK || issuerPK.length == 0) {
         receiverArray = [self.dbManager queryItemsInTable:[TNIssuerObject class] where:nil, issuerPK, nil];
+    } else {
+        receiverArray = [self.dbManager queryItemsInTable:[TNIssuerObject class] where:@"issuerPK = '%@'", issuerPK, nil];
     }
-    receiverArray = [self.dbManager queryItemsInTable:[TNIssuerObject class] where:@"issuerPK = '%@'", issuerPK, nil];
     return [receiverArray mutableCopy];
 }
 

@@ -14,6 +14,9 @@
 
 @interface TNHashCertificateModel : NSObject
 
-//@property (nonatomic, strong) TNIssuerModel *
+@property (nonatomic, strong) TNIssuerModel * issuer;
+@property (nonatomic, strong) TNCertModel *cert;
+@property (nonatomic, strong) TNReceiverModel *receiver;
+@property (nonatomic, strong) TNSignatureModel *signature;
 
 @end

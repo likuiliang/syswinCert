@@ -18,6 +18,10 @@
 
 @property (nonatomic, weak) id<TNHomeViewDelegate> delegate;
 
+- (void)updateTableViewWithDataSource:(NSArray *)dataSource;
+
+- (void)updateHomeConstraints;
+
 @end
 
 

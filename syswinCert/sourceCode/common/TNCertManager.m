@@ -5,9 +5,10 @@
 //  Created by likuiliang-Answer on 2019/5/27.
 //  Copyright © 2019年 Answer. All rights reserved.
 //
-
+//+ (instancetype)deserializeFromDictionary:(NSDictionary *)dictionary
 #import "TNCertManager.h"
 #import "TSBManager.h"
+#import "TNHashCertificateModel.h"
 
 @implementation TNCertManager
 
@@ -22,9 +23,34 @@
     return instance;
 }
 
-- (void)handleCertificateFilePath:(NSString *)filePath
+- (void)saveCertificateWithFilePath:(NSString *)filePath
 {
     // 保存数据库
+    NSError *error;
+    NSString *stringJosn = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    NSDictionary *dictObject = [stringJosn tn_JSONObject];
+    TNHashCertificateModel *hashCert = [TNHashCertificateModel deserializeFromDictionary:dictObject];
+    
+    // 保存发布者信息入库
+    TNIssuerObject *issuerObject = [TNIssuerObject new];
+    issuerObject.issuerPk = hashCert.issuer.issuerPublicKey;
+    issuerObject.name = hashCert.issuer.issuerName;
+    issuerObject.avatar = hashCert.issuer.issuerImage;
+    issuerObject.email = hashCert.issuer.issuerEmail;
+    issuerObject.url = hashCert.issuer.issuerUrl;
+    
+    [[TNSqlManager instance] updateIssuerModel:issuerObject];
+    
+    // 保存证书及用户信息入库
+    TNReceiverObject *receiverObject = [TNReceiverObject new];
+    receiverObject.receiverPK = hashCert.receiver.receiverPublicKey;
+    receiverObject.signFile = filePath;
+    receiverObject.issuerPK = hashCert.issuer.issuerPublicKey;
+    receiverObject.certName = hashCert.cert.certName;
+    receiverObject.certTime = @"2017-05-28";
+    receiverObject.certImage = hashCert.cert.certImage;
+    
+    [[TNSqlManager instance] updateReceiverModel:receiverObject];
 }
 
 - (void)verifyCertSignFilePath:(NSString *)filePath
@@ -58,7 +84,8 @@
     
         BOOL isTure = [TSBManager eccVerifySign:[signatureDict valueForKey:@"issueSign"] withRaw:signSourceString withKey:pubKey];
     
-    
 }
+
+
 
 @end

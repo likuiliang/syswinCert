@@ -8,39 +8,77 @@
 
 #import "TNHomeView.h"
 #import "TOONWYGlobalDefinition.h"
+#import "TNIssuerCell.h"
 
+@interface TNHomeView () <UITableViewDelegate, UITableViewDataSource>
 
-@interface TNHomeView () <UIScrollViewDelegate>
-
-@property (nonatomic, strong) UIScrollView *homeScrollView;
+@property (nonatomic, strong) UITableView *homeTableView;
 @property (nonatomic, strong) UIButton *icoundBtn;
+@property (nonatomic, strong) NSArray *dataSource;
 
 @end
 
 @implementation TNHomeView
 
-- (instancetype)init
+- (instancetype)initWithFrame:(CGRect)frame
 {
-    if (self = [super init]) {
-        [self addSubview:self.homeScrollView];
+    if (self = [super initWithFrame:frame]) {
+        [self addSubview:self.homeTableView];
         [self addSubview:self.icoundBtn];
         [self updateHomeConstraints];
     }
     return self;
 }
 
+- (void)updateTableViewWithDataSource:(NSArray *)dataSource
+{
+    self.dataSource = dataSource;
+    [self.homeTableView reloadData];
+}
+
 - (void)updateHomeConstraints
 {
-    [self.homeScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 80, 0));
+    [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self);
+        make.right.mas_equalTo(self);
+        make.bottom.mas_equalTo(self).with.offset(-170);
+        make.top.mas_equalTo(self);
     }];
     
     [self.icoundBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_equalTo(50);
         make.left.mas_equalTo(40);
         make.right.mas_equalTo(-40);
-        make.bottom.mas_equalTo(self).with.offset(-15);
+        make.bottom.mas_equalTo(self).with.offset(-100);
     }];
+}
+
+#pragma mark - delegate
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.dataSource.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *identifier = @"issuerCell";
+    TNIssuerCell *issuerCell = [tableView dequeueReusableCellWithIdentifier:identifier];
+    if (!issuerCell) {
+        issuerCell = [[TNIssuerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+    }
+    [issuerCell updateCellInfoWithModel:self.dataSource[indexPath.row]];
+    return issuerCell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 94;
 }
 
 - (void)icoundBtnOnClick
@@ -50,20 +88,18 @@
 
 #pragma mark - 懒加载
 
-- (UIScrollView *)homeScrollView
+- (UITableView *)homeTableView
 {
-    if (!_homeScrollView) {
-        _homeScrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT - 70)];
-        _homeScrollView.bounces = YES;
-        _homeScrollView.scrollEnabled = YES;
-        _homeScrollView.delegate = self;
-        _homeScrollView.contentOffset = CGPointMake(SCREEN_WIDTH, SCREEN_HEIGHT - 70);
-        if (@available(iOS 11.0, *)) {
-            _homeScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
-        }
-        _homeScrollView.backgroundColor = [UIColor yellowColor];
+    if (!_homeTableView) {
+        _homeTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+        _homeTableView.delegate = self;
+        _homeTableView.dataSource = self;
+        _homeTableView.tableFooterView = [UIView new];
+//        if (@available(iOS 11.0, *)) {
+//            _homeTableView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+//        }
     }
-    return _homeScrollView;
+    return _homeTableView;
 }
 
 - (UIButton *)icoundBtn
@@ -76,6 +112,14 @@
         [_icoundBtn addTarget:self action:@selector(icoundBtnOnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _icoundBtn;
+}
+
+- (NSArray *)dataSource
+{
+    if (!_dataSource) {
+        _dataSource = [NSArray new];
+    }
+    return _dataSource;
 }
 
 @end

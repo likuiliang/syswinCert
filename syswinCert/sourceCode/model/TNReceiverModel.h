@@ -8,10 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface TNReceiverModel : NSObject
+
+@property (nonatomic, copy) NSString *receiverEmail;
+@property (nonatomic, copy) NSString *receiverId;
+@property (nonatomic, copy) NSString *receiverImage;
+@property (nonatomic, copy) NSString *receiverName;
+@property (nonatomic, copy) NSString *receiverPublicKey;
 
 @end
 
-NS_ASSUME_NONNULL_END

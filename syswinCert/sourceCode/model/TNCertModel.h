@@ -10,5 +10,12 @@
 
 @interface TNCertModel : NSObject
 
+@property (nonatomic, copy) NSString *certDesc;
+@property (nonatomic, copy) NSString *certEducation;
+@property (nonatomic, copy) NSString *certId;
+@property (nonatomic, copy) NSString *certImage;
+@property (nonatomic, copy) NSString *certName;
+@property (nonatomic, copy) NSString *certType;
+
 @end
 

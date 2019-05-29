@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface TNSignatureModel : NSObject
+
+@property (nonatomic, copy) NSString *issuerSign;
+@property (nonatomic, copy) NSString *proofUrl;
+@property (nonatomic, copy) NSString *sourceId;
+@property (nonatomic, copy) NSString *targetHash;
 
 @end
 
-NS_ASSUME_NONNULL_END
