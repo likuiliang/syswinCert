@@ -23,6 +23,7 @@ PODS:
   - AFNetworking/UIKit (2.7.0):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - FDFullscreenPopGesture (99.0.1.1)
   - FMDB (99.5.2.7.3):
     - FMDB/standard (= 99.5.2.7.3)
   - FMDB/standard (99.5.2.7.3):
@@ -47,6 +48,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking
   - "AFNetworking+AutoRetry"
+  - FDFullscreenPopGesture
   - Masonry
   - MBProgressHUD
   - tcardSqlite
@@ -55,6 +57,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   http://172.28.6.24/ios_phenix/toon_pod_spec.git:
+    - FDFullscreenPopGesture
     - FMDB
     - Masonry
     - MBProgressHUD
@@ -71,6 +74,7 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   AFNetworking: 8dd5f9b9691e09186393069a12cc3b5ed7c8b511
   "AFNetworking+AutoRetry": 5987ec96155e58fe356f1a3e91e79e5f3be6296a
+  FDFullscreenPopGesture: f6dc90b5f5d4f4b0377bcb7af612c08dd209820e
   FMDB: 47a80308a7f1ad5f31faedc0388d94a7d34ab08b
   Masonry: db3a162bc801438ad5560a2e373f50a77995b310
   MBProgressHUD: ee4d576b7a2fc4f61bb27102d3304cab37b5494c
@@ -81,6 +85,6 @@ SPEC CHECKSUMS:
   TNFTSSqlite: 450d68e15cbed9d7acef902a0919e8a0f697b705
   TSB: 801598146fc470a7e25c02d625fc0356b97f4b15
 
-PODFILE CHECKSUM: 729bd6145b36d21c74b1d3e65fac54a863b50f5b
+PODFILE CHECKSUM: b95f483cb99e33c265deb63ccb0a07f736be887e
 
 COCOAPODS: 1.5.3

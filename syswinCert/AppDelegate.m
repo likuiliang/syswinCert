@@ -24,6 +24,7 @@
     TNHomeViewController *home = [[TNHomeViewController alloc] init];
     TNNavigationController *navigatonVC = [[TNNavigationController alloc] initWithRootViewController:home];
     [[TNSqlManager instance] registerCertDBWithUUID:nil];
+    self.window.backgroundColor = [UIColor whiteColor];
     self.window.rootViewController = navigatonVC;
     [self.window makeKeyAndVisible];
     return YES;

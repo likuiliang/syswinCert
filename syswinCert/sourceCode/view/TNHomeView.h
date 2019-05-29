@@ -8,9 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@class TNIssuerObject;
+
 @protocol TNHomeViewDelegate <NSObject>
 
 - (void)homeViewImportIcoundOnClick;
+
+- (void)homeViewCellDidSelectWithModel:(TNIssuerObject *)issuerObject;
 
 @end
 

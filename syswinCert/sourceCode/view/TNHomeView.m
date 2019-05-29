@@ -81,6 +81,12 @@
     return 94;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    TNIssuerObject *issuerObject = self.dataSource[indexPath.row];
+    [self.delegate homeViewCellDidSelectWithModel:issuerObject];
+}
+
 - (void)icoundBtnOnClick
 {
     [self.delegate homeViewImportIcoundOnClick];

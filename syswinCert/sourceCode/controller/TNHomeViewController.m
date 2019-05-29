@@ -14,6 +14,7 @@
 #import "TOONWYGlobalDefinition.h"
 #import "TNSqlManager.h"
 #import "TNCertManager.h"
+#import "TNIssuerInfoController.h"
 
 @interface TNHomeViewController () <UIDocumentPickerDelegate,TNHomeViewDelegate>
 
@@ -38,12 +39,6 @@
     [self.view addSubview:self.homeView];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
     
-//    TNIssuerObject *issuer = [TNIssuerObject new];
-//    issuer.issuerPk = @"1111111";
-//    issuer.name = @"test";
-//    issuer.avatar = @"sdfll";
-//    [[TNSqlManager instance] updateIssuerModel:issuer];
-//
     NSArray *array = [[TNSqlManager instance] queryIssuerWithName:nil];
     [self.homeView updateTableViewWithDataSource:array];
     
@@ -65,6 +60,14 @@
     documentPickerViewController.delegate = self;
     documentPickerViewController.modalPresentationStyle = UIModalPresentationFullScreen;
     [self presentViewController:documentPickerViewController animated:YES completion:nil];
+}
+
+- (void)homeViewCellDidSelectWithModel:(TNIssuerObject *)issuerObject
+{
+    TNIssuerInfoController *issuerInfo = [TNIssuerInfoController new];
+    issuerInfo.issuerObject = issuerObject;
+    
+    [self.navigationController pushViewController:issuerInfo animated:YES];
 }
 
 #pragma mark - UIDocumentPickerDelegate

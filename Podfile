@@ -17,5 +17,6 @@ target 'syswinCert' do
     pod 'tcardSqlite'
     pod 'TJson'
     pod 'AFNetworking+AutoRetry'
+    pod 'FDFullscreenPopGesture'
 
 end
