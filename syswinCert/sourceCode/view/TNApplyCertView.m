@@ -75,10 +75,10 @@
 - (void)applyCertOnClick
 {
     NSMutableDictionary *dictParam = [NSMutableDictionary new];
-    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@"userName"];
-    [dictParam setValue:self.emailTextFieldView.textField.text forKey:@"userEmail"];
+    [dictParam setValue:self.nameTextFieldView.textField.text forKey:@"receiverName"];
+    [dictParam setValue:self.emailTextFieldView.textField.text forKey:@"receiverEmail"];
     [dictParam setValue:self.pkTextFieldView.textField.text forKey:@"publicKey"];
-    [dictParam setValue:@"image" forKey:@"userImage"];
+    [dictParam setValue:@"image" forKey:@"receiverImage"];
     
     [self.applyCertModel requestApplyCertWithParam:dictParam];
     

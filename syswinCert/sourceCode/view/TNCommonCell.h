@@ -10,7 +10,7 @@
 #import "TNCBaseItemCell.h"
 #import "UIColor+Extension.h"
 
-@interface TNCommonView : UIView
+@interface TNCertCommonView : UIView
 
 @property (strong, nonatomic) UILabel *titleLabel;
 
@@ -18,13 +18,13 @@
 
 @end
 
-@interface TNTextFieldView : TNCommonView
+@interface TNTextFieldView : TNCertCommonView
 
 @property (nonatomic, strong) UITextField *textField;
 
 @end
 
-@interface TNButtonView : TNCommonView
+@interface TNButtonView : TNCertCommonView
 
 @property (nonatomic, strong) UIButton *buttonView;
 

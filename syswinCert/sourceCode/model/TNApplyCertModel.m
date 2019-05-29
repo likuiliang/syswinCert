@@ -27,7 +27,7 @@
     // uid是每个用户对应的ID  cipherText是密码
     // set the network timeout duration to 30 seconds
 //    manager.requestSerializer = [[AFHTTPRequestSerializerWithTimeout alloc] initWithTimeout:30];
-    [manager POST:@"http://172.31.238.100:8081/user/register" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    [manager POST:@"http://172.28.11.230:8081/receiver/register" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // success, parse the response here
         NSLog(@"responseObject=====%@",responseObject);
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

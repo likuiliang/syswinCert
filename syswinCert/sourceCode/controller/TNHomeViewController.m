@@ -37,6 +37,13 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.title = @"发证机构";
     [self.view addSubview:self.homeView];
+    [self.homeView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.view.mas_top);
+        make.left.mas_equalTo(self.view.mas_left);
+        make.right.mas_equalTo(self.view.mas_right);
+        make.bottom.mas_equalTo(self.view.mas_bottom);
+    }];
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
     
     NSArray *array = [[TNSqlManager instance] queryIssuerWithName:nil];
@@ -84,9 +91,8 @@
         [fileCoordinator coordinateReadingItemAtURL:url options:0 error:&error byAccessor:^(NSURL *newURL) {
             fileData = [NSData dataWithContentsOfURL:newURL];
             NSString *fileName = [newURL lastPathComponent];
-            NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:fileName];
             //写到本地
-            [self writeSourceFileData:fileData toFilePath:localFilePath];
+            [self writeSourceFileData:fileData toFilePath:fileName];
         }];
         
         [url stopAccessingSecurityScopedResource];
@@ -100,7 +106,10 @@
     if (![[NSFileManager defaultManager] fileExistsAtPath:KLocalSourceFilePath]) {
         [[NSFileManager defaultManager] createDirectoryAtPath:KLocalSourceFilePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
-    [sourceData writeToFile:filePath atomically:YES];
+    
+    NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:filePath];
+    
+    [sourceData writeToFile:localFilePath atomically:YES];
     // 写入本地后，把相关内容存入数据库
     
     [[TNCertManager instance] saveCertificateWithFilePath:filePath];;

@@ -27,7 +27,8 @@
 {
     // 保存数据库
     NSError *error;
-    NSString *stringJosn = [NSString stringWithContentsOfFile:filePath encoding:NSUTF8StringEncoding error:&error];
+    NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:filePath];
+    NSString *stringJosn = [NSString stringWithContentsOfFile:localFilePath encoding:NSUTF8StringEncoding error:&error];
     NSDictionary *dictObject = [stringJosn tn_JSONObject];
     TNHashCertificateModel *hashCert = [TNHashCertificateModel deserializeFromDictionary:dictObject];
     

@@ -9,11 +9,11 @@
 #import "TNCommonCell.h"
 #import "Masonry.h"
 
-@interface TNCommonView()
+@interface TNCertCommonView()
 
 @end
 
-@implementation TNCommonView
+@implementation TNCertCommonView
 
 - (instancetype)init
 {

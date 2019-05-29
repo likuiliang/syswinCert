@@ -41,7 +41,7 @@
     [self.homeTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.mas_equalTo(self);
         make.right.mas_equalTo(self);
-        make.bottom.mas_equalTo(self).with.offset(-170);
+        make.bottom.mas_equalTo(self).with.offset(-100);
         make.top.mas_equalTo(self);
     }];
     
@@ -49,7 +49,7 @@
         make.height.mas_equalTo(50);
         make.left.mas_equalTo(40);
         make.right.mas_equalTo(-40);
-        make.bottom.mas_equalTo(self).with.offset(-100);
+        make.bottom.mas_equalTo(self).with.offset(-30);
     }];
 }
 

@@ -15,6 +15,7 @@
 #import "TNIssuerInfoView.h"
 #import "UINavigationController+FDFullscreenPopGesture.h"
 #import "TNCertInfoController.h"
+#import "TNCertInfoController.h"
 
 @interface TNIssuerInfoController ()<UIDocumentPickerDelegate,TNIssuerInfoViewDelegate>
 
@@ -44,7 +45,7 @@
 - (void)issuerInfoCellOnClick:(TNReceiverObject *)receiverObject
 {
     TNCertInfoController *certInfoVC = [TNCertInfoController new];
-    
+    certInfoVC.receiverObject = receiverObject;
     [self.navigationController pushViewController:certInfoVC animated:YES];
 }
 
@@ -53,6 +54,7 @@
     if (!_issuerInfoView) {
         _issuerInfoView = [[TNIssuerInfoView alloc] initWithFrame:self.view.bounds];
         _issuerInfoView.issuerObject = self.issuerObject;
+        _issuerInfoView.delegate = self;
     }
     return _issuerInfoView;
 }

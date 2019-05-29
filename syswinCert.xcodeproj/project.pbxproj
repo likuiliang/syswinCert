@@ -46,6 +46,8 @@
 		4DEDF11C229E15800044DC05 /* TNIssuerInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF11B229E15800044DC05 /* TNIssuerInfoHeaderView.m */; };
 		4DEDF11F229E34000044DC05 /* TNCertInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF11E229E34000044DC05 /* TNCertInfoController.m */; };
 		4DEDF122229E37CA0044DC05 /* TNCertInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF121229E37CA0044DC05 /* TNCertInfoView.m */; };
+		4DEDF125229E5F320044DC05 /* TNCertInfoHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF124229E5F320044DC05 /* TNCertInfoHeaderView.m */; };
+		4DEDF128229E82090044DC05 /* TNCertCommonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDF127229E82090044DC05 /* TNCertCommonView.m */; };
 		7607802C6DBAEAF626D37FE6 /* libPods-syswinCert.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EA9ADA1AD9B787817DA9C77 /* libPods-syswinCert.a */; };
 /* End PBXBuildFile section */
 
@@ -129,6 +131,10 @@
 		4DEDF11E229E34000044DC05 /* TNCertInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCertInfoController.m; sourceTree = "<group>"; };
 		4DEDF120229E37CA0044DC05 /* TNCertInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCertInfoView.h; sourceTree = "<group>"; };
 		4DEDF121229E37CA0044DC05 /* TNCertInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCertInfoView.m; sourceTree = "<group>"; };
+		4DEDF123229E5F320044DC05 /* TNCertInfoHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCertInfoHeaderView.h; sourceTree = "<group>"; };
+		4DEDF124229E5F320044DC05 /* TNCertInfoHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCertInfoHeaderView.m; sourceTree = "<group>"; };
+		4DEDF126229E82090044DC05 /* TNCertCommonView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNCertCommonView.h; sourceTree = "<group>"; };
+		4DEDF127229E82090044DC05 /* TNCertCommonView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNCertCommonView.m; sourceTree = "<group>"; };
 		585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.debug.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.debug.xcconfig"; sourceTree = "<group>"; };
 		F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-syswinCert.release.xcconfig"; path = "Pods/Target Support Files/Pods-syswinCert/Pods-syswinCert.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -279,10 +285,14 @@
 				4DEDF11B229E15800044DC05 /* TNIssuerInfoHeaderView.m */,
 				4DEDF120229E37CA0044DC05 /* TNCertInfoView.h */,
 				4DEDF121229E37CA0044DC05 /* TNCertInfoView.m */,
+				4DEDF123229E5F320044DC05 /* TNCertInfoHeaderView.h */,
+				4DEDF124229E5F320044DC05 /* TNCertInfoHeaderView.m */,
 				4D6EAED12296B7D00088FE12 /* TNCommonCell.h */,
 				4D6EAED22296B7D00088FE12 /* TNCommonCell.m */,
 				4DEDF10E229D52570044DC05 /* TNIssuerCell.h */,
 				4DEDF10F229D52570044DC05 /* TNIssuerCell.m */,
+				4DEDF126229E82090044DC05 /* TNCertCommonView.h */,
+				4DEDF127229E82090044DC05 /* TNCertCommonView.m */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -407,6 +417,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DEDF125229E5F320044DC05 /* TNCertInfoHeaderView.m in Sources */,
 				4DE382882297E7D600B2BB24 /* TNNetWorkManager.m in Sources */,
 				4D6EAEA822967DC80088FE12 /* TNDocument.m in Sources */,
 				4DE3828B2297E9F700B2BB24 /* NSDictionary+NSNull.m in Sources */,
@@ -415,6 +426,7 @@
 				4DEDF104229C085F0044DC05 /* TNCertModel.m in Sources */,
 				4D6EAEA22296717B0088FE12 /* TNHomeViewController.m in Sources */,
 				4DE3828E229B73CB00B2BB24 /* TNHomeView.m in Sources */,
+				4DEDF128229E82090044DC05 /* TNCertCommonView.m in Sources */,
 				4D6EAECA22969EFB0088FE12 /* UIColor+Extension.m in Sources */,
 				4D6EAED02296B5640088FE12 /* TNApplyCertModel.m in Sources */,
 				4DEDF110229D52570044DC05 /* TNIssuerCell.m in Sources */,

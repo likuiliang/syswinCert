@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TNIssuerObject.h"
+#import "TNReceiverObject.h"
 
 @interface TNCertInfoController : UIViewController
 
