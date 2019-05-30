@@ -72,10 +72,12 @@
         TNReceiverObject *receiverObject = (TNReceiverObject *)model;
         self.titleLabel.text = receiverObject.certName;
         self.subTitleLabel.text = receiverObject.certTime;
+        self.headerImageView.image = [TNCertManager formatBase64ImageWithString:receiverObject.certImage];
     } else if ([model isKindOfClass:[TNIssuerObject class]]){
         TNIssuerObject *issuerObject = (TNIssuerObject *)model;
         self.titleLabel.text = issuerObject.name;
         self.subTitleLabel.text = @"1张证书";
+        self.headerImageView.image = [TNCertManager formatBase64ImageWithString:issuerObject.avatar];
     }
 }
 

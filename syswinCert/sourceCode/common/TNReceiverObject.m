@@ -11,7 +11,7 @@
 @implementation TNReceiverObject
 
 + (NSString *)primaryKey {
-    return @"receiverPk";
+    return @"receiverId";
 }
 
 @end

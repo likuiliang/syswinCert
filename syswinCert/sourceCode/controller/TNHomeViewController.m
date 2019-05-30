@@ -46,9 +46,18 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"申请证书" style:UIBarButtonItemStylePlain target:self action:@selector(applyCerOnClick)];
     
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self updateHomeView];
+}
+
+- (void)updateHomeView
+{
     NSArray *array = [[TNSqlManager instance] queryIssuerWithName:nil];
     [self.homeView updateTableViewWithDataSource:array];
-    
 }
 
 - (void)applyCerOnClick
@@ -61,7 +70,7 @@
 
 - (void)homeViewImportIcoundOnClick
 {
-    NSArray *documentTypes = @[@"public.content", @"public.text", @"public.source-code ", @"public.image", @"public.audiovisual-content", @"com.adobe.pdf", @"com.apple.keynote.key", @"com.microsoft.word.doc", @"com.microsoft.excel.xls", @"com.microsoft.powerpoint.ppt",@"public.json",@"public.hpc"];
+    NSArray *documentTypes = @[@"public.content", @"public.text", @"public.source-code ", @"public.image", @"public.audiovisual-content", @"com.adobe.pdf", @"com.apple.keynote.key", @"com.microsoft.word.doc", @"com.microsoft.excel.xls", @"com.microsoft.powerpoint.ppt",@"public.json",@"com.microsoft.excel.hpc"];
     //    UIDocumentBrowserViewController
     UIDocumentPickerViewController *documentPickerViewController = [[UIDocumentPickerViewController alloc] initWithDocumentTypes:documentTypes inMode:UIDocumentPickerModeOpen];
     documentPickerViewController.delegate = self;
@@ -97,6 +106,8 @@
         
         [url stopAccessingSecurityScopedResource];
         [self dismissViewControllerAnimated:YES completion:nil];
+        [self updateHomeView];
+        
     }else{
         //Error handling
     }

@@ -16,6 +16,7 @@
 @property (nonatomic, strong) UITableView *issuerInfoTableView;
 @property (nonatomic, strong) NSArray *dataSource;
 @property (nonatomic, strong) TNIssuerInfoHeaderView *headerView;
+@property (strong, nonatomic) UIButton *leftButton;
 
 @end
 
@@ -25,9 +26,15 @@
 {
     if (self = [super initWithFrame:frame]) {
         [self addSubview:self.issuerInfoTableView];
+        [self addSubview:self.leftButton];
         self.issuerInfoTableView.tableHeaderView = self.headerView;
     }
     return self;
+}
+
+- (void)cardGoBack
+{
+    [self.delegate backOnClick];
 }
 
 - (void)updateTableViewWithDataSource:(NSArray *)dataSource
@@ -101,6 +108,17 @@
         _headerView = [[TNIssuerInfoHeaderView alloc] init];
     }
     return _headerView;
+}
+
+- (UIButton *)leftButton
+{
+    if (!_leftButton) {
+        _leftButton = [UIButton new];
+        [_leftButton setImage:[UIImage imageNamed:@"backarrow-white"] forState:UIControlStateNormal];
+        [_leftButton addTarget:self action:@selector(cardGoBack) forControlEvents:UIControlEventTouchUpInside];
+        _leftButton.frame = CGRectMake(13, 25 + kStatusExtensionHeight, 22, 40);
+    }
+    return _leftButton;
 }
 
 @end

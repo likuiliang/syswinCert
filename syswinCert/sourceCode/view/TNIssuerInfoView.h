@@ -14,6 +14,8 @@
 
 - (void)issuerInfoCellOnClick:(TNReceiverObject *)receiverObject;
 
+- (void)backOnClick;
+
 @end
 
 @interface TNIssuerInfoView : UIView

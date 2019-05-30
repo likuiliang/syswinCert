@@ -31,7 +31,11 @@
 
 - (void)updateIssuerViewWithModel:(TNIssuerObject *)issuerObject
 {
-//    self.issuerImageView.image
+    
+    
+    self.issuerImageView.image = [TNCertManager formatBase64ImageWithString:issuerObject.avatar];
+    
+//    self.issuerImageView.image = issuerObject
     self.issuerNameLabel.text = issuerObject.name;
     self.urlLabel.text = issuerObject.url;
     self.emailLabel.text = issuerObject.email;

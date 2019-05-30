@@ -41,13 +41,23 @@
     TNHashCertificateModel *hashCert = [TNHashCertificateModel deserializeFromDictionary:dictObject];
     
     [self.infoView updateCertInfoViewWithModel:hashCert];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(backButtonOnClick) forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:[UIImage imageNamed:@"backarrow-black"] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+}
+
+- (void)backButtonOnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)certViewCellDidSelectWithModel:(TNHashCertificateModel *)model
 {
     TNVerifyInfoController *verifyVC = [TNVerifyInfoController new];
     verifyVC.model = model;
-    
+    verifyVC.receiverObject = self.receiverObject;
     [self.navigationController pushViewController:verifyVC animated:YES];
 }
 

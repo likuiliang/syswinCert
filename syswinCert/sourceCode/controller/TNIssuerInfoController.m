@@ -42,6 +42,11 @@
     [self.issuerInfoView updateTableViewWithDataSource:array];
 }
 
+- (void)backOnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (void)issuerInfoCellOnClick:(TNReceiverObject *)receiverObject
 {
     TNCertInfoController *certInfoVC = [TNCertInfoController new];

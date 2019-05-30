@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *certImage;
 @property (nonatomic, copy) NSString *certName;
 @property (nonatomic, copy) NSString *certType;
+@property (nonatomic, copy) NSString *certTime;
 
 @end
 

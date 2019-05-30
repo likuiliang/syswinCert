@@ -25,7 +25,16 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.applyCertView];
     self.applyCertView.frame = self.view.bounds;
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(backButtonOnClick) forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:[UIImage imageNamed:@"backarrow-black"] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
     
+}
+
+- (void)backButtonOnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (TNApplyCertView *)applyCertView

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UILabel *certDetailLabel;
 @property (nonatomic, strong) TNHashCertificateModel *model;
 
+@property (nonatomic, strong) UIImageView *figureImageView;
 @end
 
 @implementation TNCertInfoHeaderView
@@ -27,6 +28,7 @@
         [self addSubview:self.certImageView];
         [self addSubview:self.issuerImageView];
         [self addSubview:self.issuerNameLabel];
+        [self addSubview:self.figureImageView];
         [self addSubview:self.receiverNameLabel];
         [self addSubview:self.certDetailLabel];
         [self updateCertInfoConstraints];
@@ -37,7 +39,7 @@
 - (void)updateCertInfoHeaderViewWithModel:(TNHashCertificateModel *)model
 {
     self.model = model;
-//    self.issuerImageView.image = [UIImage imageNamed:model.issuer.issuerImage];
+    self.issuerImageView.image = [TNCertManager formatBase64ImageWithString:model.issuer.issuerImage];
     self.issuerNameLabel.text = model.issuer.issuerName;
     self.receiverNameLabel.text = model.receiver.receiverName;
     self.certDetailLabel.text = model.cert.certDesc;
@@ -61,14 +63,21 @@
         make.centerX.mas_equalTo(self.certImageView);
     }];
     
+    [self.figureImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self).with.offset(30);
+        make.right.mas_equalTo(self).with.offset(-30);
+        make.top.mas_equalTo(self.issuerNameLabel.mas_bottom).with.offset(10);
+        make.centerX.mas_equalTo(self);
+    }];
+    
     [self.receiverNameLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.issuerNameLabel.mas_bottom).with.offset(28);
+        make.top.mas_equalTo(self.figureImageView.mas_bottom).with.offset(8);
         make.height.mas_equalTo(21);
         make.centerX.mas_equalTo(self.certImageView);
     }];
     
     [self.certDetailLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.receiverNameLabel.mas_bottom).with.offset(2);
+        make.top.mas_equalTo(self.receiverNameLabel.mas_bottom).with.offset(7);
         make.height.mas_equalTo(21);
         make.centerX.mas_equalTo(self.certImageView);
     }];
@@ -90,6 +99,14 @@
         _issuerImageView.contentMode = UIViewContentModeScaleAspectFill;
     }
     return _issuerImageView;
+}
+
+- (UIImageView *)figureImageView{
+    if (!_figureImageView) {
+        _figureImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"figure_image"]];
+        _issuerImageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
+    return _figureImageView;
 }
 
 - (UILabel *)issuerNameLabel

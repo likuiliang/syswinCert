@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "TNHashCertificateModel.h"
+#import "TNReceiverObject.h"
 
 @interface TNVerifyInfoController : UIViewController
 
 @property (nonatomic, strong) TNHashCertificateModel *model;
+@property (nonatomic, strong) TNReceiverObject *receiverObject;
 
 @end
 

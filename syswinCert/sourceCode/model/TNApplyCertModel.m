@@ -10,11 +10,12 @@
 #import "TNNetWorkManager.h"
 #import <AFNetworking/AFHTTPRequestOperationManager.h>
 #import <AFNetworking+AutoRetry/AFHTTPRequestOperationManager+AutoRetry.h>
+#import "MBProgressHUD+Extend.h"
 //#import <TJson/NSDictionaryTNJson>
 
 @implementation TNApplyCertModel
 
-- (void)requestApplyCertWithParam:(NSDictionary *)param
+- (void)requestApplyCertWithParam:(NSDictionary *)param block:(void (^)(BOOL isSuccess))block
 {
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
     // 返回的格式 JSON
@@ -29,25 +30,22 @@
 //    manager.requestSerializer = [[AFHTTPRequestSerializerWithTimeout alloc] initWithTimeout:30];
     [manager POST:@"http://172.28.11.230:8081/receiver/register" parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
         // success, parse the response here
-        NSLog(@"responseObject=====%@",responseObject);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // UI更新代码
+            [MBProgressHUD showMessage:@"注册成功!" inView:nil];
+            
+            block ? block(YES) : nil;
+        });
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         // failure, e.g. network error
-        NSLog(@"");
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // UI更新代码
+            [MBProgressHUD showMessage:@"注册失败!" inView:nil];
+            block ? block(NO) : nil;
+        });
+        
     } autoRetry:1];
     
-    
-    
-//    [TNNetWorkManager GET:@"http://172.31.238.100:8081/org/list/" Param:param Success:^(NSDictionary *OCJSON) {
-//
-//    } Falied:^(AFCNetFaliedModel *faliedModel) {
-//
-//    }];
-    
-//    [TNNetWorkManager POST:@"http://172.31.238.100:8081/user/register" Param:param Success:^(NSDictionary *OCJSON) {
-//
-//    } Falied:^(AFCNetFaliedModel *faliedModel) {
-//
-//    }];
 }
 
 @end

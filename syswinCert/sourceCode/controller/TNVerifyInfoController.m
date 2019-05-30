@@ -9,6 +9,7 @@
 #import "TNVerifyInfoController.h"
 #import "TNVerifyInfoView.h"
 #import "TOONWYGlobalDefinition.h"
+#import "TNCertManager.h"
 
 @interface TNVerifyInfoController ()
 
@@ -33,8 +34,33 @@
     [self.verifyView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.mas_equalTo(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self action:@selector(backButtonOnClick) forControlEvents:UIControlEventTouchUpInside];
+    [button setImage:[UIImage imageNamed:@"backarrow-black"] forState:UIControlStateNormal];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    [self verifyCert];
 }
 
+- (void)verifyCert
+{
+    // 远端hash值
+    [[TNCertManager instance] verifyCertGetRemoteHashFilePath:self.model.signature.proofUrl block:^(BOOL isSuccess, TNRecordModel *model) {
+        
+    }];
+    
+    BOOL isSign = [[TNCertManager instance] verifyCertSignFilePath:self.receiverObject.signFile];
+    
+    NSString *hash = [[TNCertManager instance] localHashFilePath:self.receiverObject.signFile];
+    
+//    NSString * [[TNCertManager instance] localHashFilePath:self.receiverObject.signFile];
+    
+}
+
+- (void)backButtonOnClick
+{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (TNVerifyInfoView *)verifyView
 {
     if (!_verifyView) {

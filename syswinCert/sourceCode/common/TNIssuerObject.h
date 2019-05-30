@@ -16,6 +16,7 @@
 @property (nonatomic, copy) NSString *avatar;
 @property (nonatomic, copy) NSString *email;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *issuerImage;
 
 @end
 

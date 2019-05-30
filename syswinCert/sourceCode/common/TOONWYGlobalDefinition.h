@@ -25,6 +25,7 @@
 #import <TJson/NSDictionaryTNJson.h>
 #import <TJson/TNJsonSerializableObject.h>
 #import "TNSqlManager.h"
+#import "TNCertManager.h"
 
 //-------------------------------------公用方法定义---------------------------------------------------
 #define WEAKSELF typeof(self) __weak weakSelf = self;

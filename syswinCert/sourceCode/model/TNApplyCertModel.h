@@ -10,7 +10,7 @@
 
 @interface TNApplyCertModel : NSObject
 
-- (void)requestApplyCertWithParam:(NSDictionary *)param;
+- (void)requestApplyCertWithParam:(NSDictionary *)param block:(void (^)(BOOL isSuccess))block;
 
 @end
 

@@ -86,12 +86,12 @@
 
     TNTitleView *receiverCertView = [TNTitleView new];
     receiverCertView.titleLabel.text = @"证件类型";
-    receiverCertView.detailLabel.text = self.certMode.receiver.receiverName;
+    receiverCertView.detailLabel.text = self.certMode.cert.certEducation;
     receiverCertView.frame = CGRectMake(0, CGRectGetMaxY(receiverTitleView.frame), SCREEN_WIDTH, 40);
     [self.certInfoScrollView addSubview:receiverCertView];
 
     TNTitleView *receiverCertNoView = [TNTitleView new];
-    receiverCertNoView.titleLabel.text = @"证件编号";
+    receiverCertNoView.titleLabel.text = @"收件人邮箱";
     receiverCertNoView.detailLabel.text = self.certMode.receiver.receiverEmail;
     receiverCertNoView.frame = CGRectMake(0, CGRectGetMaxY(receiverCertView.frame), SCREEN_WIDTH, 40);
     [self.certInfoScrollView addSubview:receiverCertNoView];

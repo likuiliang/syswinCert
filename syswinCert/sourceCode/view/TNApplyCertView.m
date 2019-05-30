@@ -80,9 +80,9 @@
     [dictParam setValue:self.pkTextFieldView.textField.text forKey:@"publicKey"];
     [dictParam setValue:@"image" forKey:@"receiverImage"];
     
-    [self.applyCertModel requestApplyCertWithParam:dictParam];
-    
-    
+    [self.applyCertModel requestApplyCertWithParam:dictParam block:^(BOOL isSuccess) {
+        
+    }];
     
 }
 
