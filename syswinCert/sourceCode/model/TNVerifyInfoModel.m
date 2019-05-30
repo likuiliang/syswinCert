@@ -21,15 +21,15 @@
     
         TNVerifyInfoModel *transactionIdModel = [TNVerifyInfoModel new];
         transactionIdModel.title = @"获取交易ID";
-        transactionIdModel.verifyType = TNVerifySuccessType;
     
         TNVerifyInfoModel *hashIdModel = [TNVerifyInfoModel new];
         hashIdModel.title = @"计算本地hash";
-        hashIdModel.verifyType = TNVerifySuccessType;
     
         TNVerifyInfoModel *hashRemoteModel = [TNVerifyInfoModel new];
         hashRemoteModel.title = @"获取远程hash";
-        hashRemoteModel.verifyType = TNVerifySuccessType;
+    
+        TNVerifyInfoModel *signRemoteModel = [TNVerifyInfoModel new];
+        signRemoteModel.title = @"验证发布者";
     
     
     TNVerifyInfoModel *hashVerifyModel = [TNVerifyInfoModel new];
@@ -39,7 +39,6 @@
     
         TNVerifyInfoModel *checkhashModel = [TNVerifyInfoModel new];
         checkhashModel.title = @"检查hash";
-        checkhashModel.verifyType = TNVerifyFailType;
     
     
     TNVerifyInfoModel *revecerVerifyModel = [TNVerifyInfoModel new];
@@ -51,9 +50,12 @@
         checkReceviceModel.title = @"验证收证人";
     
     [titleArray addObject:formatVerifyModel];
+    
     [titleArray addObject:transactionIdModel];
-    [titleArray addObject:transactionIdModel];
+    [titleArray addObject:hashIdModel];
     [titleArray addObject:hashRemoteModel];
+    [titleArray addObject:signRemoteModel];
+    
     
     [titleArray addObject:hashVerifyModel];
     [titleArray addObject:checkhashModel];

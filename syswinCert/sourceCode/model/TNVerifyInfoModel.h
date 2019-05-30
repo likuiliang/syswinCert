@@ -10,9 +10,9 @@
 #import <UIKit/UIKit.h>
 
 typedef NS_ENUM(NSInteger, TNVerifyType) {
-    TNVerifyBeingType = 1 , // 验证中
-    TNVerifySuccessType = 2 ,  // 验证成功
-    TNVerifyFailType = 3 ,  // 验证失败
+    TNVerifyFailType = 2 , // 验证失败
+    TNVerifySuccessType = 3 ,  // 验证成功
+//    TNVerifyBeingType = 3 ,  //
 };
 
 @interface TNVerifyInfoModel : NSObject

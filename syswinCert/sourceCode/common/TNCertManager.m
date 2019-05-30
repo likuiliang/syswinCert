@@ -158,7 +158,6 @@
 
 }
 
-
 + (UIImage *)formatBase64ImageWithString:(NSString *)base64String
 {
     if (!base64String || base64String.length < 8) {

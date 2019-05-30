@@ -186,14 +186,14 @@
     if (model.isHeaderTItleView) {
         self.rotundityImageView.hidden = YES;
         self.titleLabel.font = [UIFont boldSystemFontOfSize:20];
-        
+        self.titleLabel.textColor = [UIColor colorWithHEXString:@"#222222"];
     } else {
         self.titleLabel.font = [UIFont systemFontOfSize:16];
     }
     self.headerImageView.image = [UIImage imageNamed:model.imageName];
-    if (model.verifyType == TNVerifyBeingType) {
-    } else if (model.verifyType == TNVerifySuccessType) {
+    if (model.verifyType == TNVerifySuccessType) {
         self.bgNomalLabel.backgroundColor = [UIColor colorWithHEXString:@"#1FB677"];
+        self.titleLabel.textColor = [UIColor colorWithHEXString:@"#222222"];
     } else if (model.verifyType == TNVerifyFailType && !model.isHeaderTItleView) {
         self.headerImageView.image = [UIImage imageNamed:@"check_error_image"];
         self.titleLabel.textColor = [UIColor colorWithHEXString:@"#C02219"];

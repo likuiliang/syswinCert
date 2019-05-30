@@ -26,8 +26,23 @@
         [self addSubview:self.verifyTableView];
         self.verifyTableView.tableHeaderView = self.verifyTitleLabel;
         [self initUIView];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(verifyCert:) name:@"TNCertVerifyNotification" object:nil];
     }
     return self;
+}
+
+- (void)verifyCert:(NSNotification *)info
+{
+    NSDictionary *dictInfo = info.object;
+    NSInteger key = [[dictInfo valueForKey:@"key"] integerValue];
+    NSInteger success = [[dictInfo valueForKey:@"success"] integerValue];
+    TNVerifyInfoModel *infoModel = self.dataSource[key];
+    infoModel.verifyType = success;
+    if (infoModel.verifyType == TNVerifyFailType) {
+        self.verifyTitleLabel.backgroundColor = [UIColor colorWithHEXString:@"#D3453D"];
+        self.verifyTitleLabel.textColor = [UIColor colorWithHEXString:@"#FFFFFF"];
+    }
+    [self.verifyTableView reloadData];
 }
 
 - (void)initUIView
