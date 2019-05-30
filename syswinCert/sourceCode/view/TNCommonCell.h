@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "TNCBaseItemCell.h"
 #import "UIColor+Extension.h"
+#import "TNVerifyInfoModel.h"
 
 @interface TNCertCommonView : UIView
 
@@ -27,5 +28,11 @@
 @interface TNButtonView : TNCertCommonView
 
 @property (nonatomic, strong) UIButton *buttonView;
+
+@end
+
+@interface TNVerifyTitleCell : UITableViewCell
+
+- (void)updateVerifyCellInfoWithModel:(TNVerifyInfoModel *)model;
 
 @end

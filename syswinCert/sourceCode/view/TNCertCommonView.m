@@ -127,3 +127,44 @@
 @end
 
 
+@interface TNVerifyTitleView ()
+
+@property (nonatomic, strong) UILabel *bgNomalLabel;
+@property (nonatomic, strong) UILabel *bgSelectLabel;
+@property (nonatomic, strong) UIImageView *headerImageView;
+
+@end
+
+@implementation TNVerifyTitleView
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self addSubview:self.bgNomalLabel];
+        [self addSubview:self.bgSelectLabel];
+        [self addSubview:self.headerImageView];
+    }
+    return self;
+}
+
+- (void)updateVerifyTitleViewConstraints
+{
+    [self.bgNomalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(12);
+        make.height.mas_equalTo(self);
+        make.left.mas_equalTo(39);
+        make.top.mas_equalTo(self);
+    }];
+    
+    [self.bgSelectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.bgNomalLabel);
+    }];
+    
+    [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(34, 34));
+        make.left.mas_equalTo(self).with.offset(28);
+        make.centerY.mas_equalTo(self);
+    }];
+}
+
+@end

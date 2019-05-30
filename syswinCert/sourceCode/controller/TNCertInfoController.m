@@ -9,8 +9,9 @@
 #import "TNCertInfoController.h"
 #import "TNCertInfoView.h"
 #import "TNHashCertificateModel.h"
+#import "TNVerifyInfoController.h"
 
-@interface TNCertInfoController ()
+@interface TNCertInfoController () <TNCertInfoViewDelegate>
 
 @property (nonatomic, strong) TNCertInfoView *infoView;
 
@@ -42,12 +43,20 @@
     [self.infoView updateCertInfoViewWithModel:hashCert];
 }
 
+- (void)certViewCellDidSelectWithModel:(TNHashCertificateModel *)model
+{
+    TNVerifyInfoController *verifyVC = [TNVerifyInfoController new];
+    verifyVC.model = model;
+    
+    [self.navigationController pushViewController:verifyVC animated:YES];
+}
 
 
 - (TNCertInfoView *)infoView
 {
     if (!_infoView) {
         _infoView = [[TNCertInfoView alloc] initWithFrame:self.view.bounds];
+        _infoView.delegate = self;
     }
     return _infoView;
 }

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D463F33229F63BA00EB109C /* TNVerifyInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D463F32229F63BA00EB109C /* TNVerifyInfoController.m */; };
+		4D463F36229F63E200EB109C /* TNVerifyInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D463F35229F63E200EB109C /* TNVerifyInfoView.m */; };
+		4D463F39229F77B600EB109C /* TNVerifyInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D463F38229F77B600EB109C /* TNVerifyInfoModel.m */; };
 		4D6EAE8722964DB60088FE12 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EAE8622964DB60088FE12 /* AppDelegate.m */; };
 		4D6EAE8D22964DB60088FE12 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EAE8B22964DB60088FE12 /* Main.storyboard */; };
 		4D6EAE8F22964DB70088FE12 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D6EAE8E22964DB70088FE12 /* Assets.xcassets */; };
@@ -53,6 +56,12 @@
 
 /* Begin PBXFileReference section */
 		0EA9ADA1AD9B787817DA9C77 /* libPods-syswinCert.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-syswinCert.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D463F31229F63BA00EB109C /* TNVerifyInfoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNVerifyInfoController.h; sourceTree = "<group>"; };
+		4D463F32229F63BA00EB109C /* TNVerifyInfoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNVerifyInfoController.m; sourceTree = "<group>"; };
+		4D463F34229F63E200EB109C /* TNVerifyInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNVerifyInfoView.h; sourceTree = "<group>"; };
+		4D463F35229F63E200EB109C /* TNVerifyInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNVerifyInfoView.m; sourceTree = "<group>"; };
+		4D463F37229F77B600EB109C /* TNVerifyInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TNVerifyInfoModel.h; sourceTree = "<group>"; };
+		4D463F38229F77B600EB109C /* TNVerifyInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TNVerifyInfoModel.m; sourceTree = "<group>"; };
 		4D6EAE8222964DB60088FE12 /* syswinCert.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = syswinCert.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D6EAE8522964DB60088FE12 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4D6EAE8622964DB60088FE12 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -207,6 +216,8 @@
 				4DEDF112229E0FB90044DC05 /* TNIssuerInfoController.m */,
 				4DEDF11D229E34000044DC05 /* TNCertInfoController.h */,
 				4DEDF11E229E34000044DC05 /* TNCertInfoController.m */,
+				4D463F31229F63BA00EB109C /* TNVerifyInfoController.h */,
+				4D463F32229F63BA00EB109C /* TNVerifyInfoController.m */,
 				4DEDF117229E123A0044DC05 /* TNCardHiddenNavigationController.h */,
 				4DEDF118229E123A0044DC05 /* TNCardHiddenNavigationController.m */,
 			);
@@ -268,6 +279,8 @@
 				4DEDF109229C088C0044DC05 /* TNReceiverModel.m */,
 				4DEDF10B229C08A80044DC05 /* TNSignatureModel.h */,
 				4DEDF10C229C08A80044DC05 /* TNSignatureModel.m */,
+				4D463F37229F77B600EB109C /* TNVerifyInfoModel.h */,
+				4D463F38229F77B600EB109C /* TNVerifyInfoModel.m */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -287,6 +300,8 @@
 				4DEDF121229E37CA0044DC05 /* TNCertInfoView.m */,
 				4DEDF123229E5F320044DC05 /* TNCertInfoHeaderView.h */,
 				4DEDF124229E5F320044DC05 /* TNCertInfoHeaderView.m */,
+				4D463F34229F63E200EB109C /* TNVerifyInfoView.h */,
+				4D463F35229F63E200EB109C /* TNVerifyInfoView.m */,
 				4D6EAED12296B7D00088FE12 /* TNCommonCell.h */,
 				4D6EAED22296B7D00088FE12 /* TNCommonCell.m */,
 				4DEDF10E229D52570044DC05 /* TNIssuerCell.h */,
@@ -420,8 +435,10 @@
 				4DEDF125229E5F320044DC05 /* TNCertInfoHeaderView.m in Sources */,
 				4DE382882297E7D600B2BB24 /* TNNetWorkManager.m in Sources */,
 				4D6EAEA822967DC80088FE12 /* TNDocument.m in Sources */,
+				4D463F36229F63E200EB109C /* TNVerifyInfoView.m in Sources */,
 				4DE3828B2297E9F700B2BB24 /* NSDictionary+NSNull.m in Sources */,
 				4DE38291229B886C00B2BB24 /* TNSqlManager.m in Sources */,
+				4D463F33229F63BA00EB109C /* TNVerifyInfoController.m in Sources */,
 				4D6EAEC722969EBD0088FE12 /* TNCSectionModel.m in Sources */,
 				4DEDF104229C085F0044DC05 /* TNCertModel.m in Sources */,
 				4D6EAEA22296717B0088FE12 /* TNHomeViewController.m in Sources */,
@@ -429,6 +446,7 @@
 				4DEDF128229E82090044DC05 /* TNCertCommonView.m in Sources */,
 				4D6EAECA22969EFB0088FE12 /* UIColor+Extension.m in Sources */,
 				4D6EAED02296B5640088FE12 /* TNApplyCertModel.m in Sources */,
+				4D463F39229F77B600EB109C /* TNVerifyInfoModel.m in Sources */,
 				4DEDF110229D52570044DC05 /* TNIssuerCell.m in Sources */,
 				4DEDF10D229C08A80044DC05 /* TNSignatureModel.m in Sources */,
 				4D6EAEA5229671AD0088FE12 /* TNNavigationController.m in Sources */,

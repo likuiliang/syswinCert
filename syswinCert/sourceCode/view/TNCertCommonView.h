@@ -28,3 +28,6 @@
 
 @end
 
+@interface TNVerifyTitleView : UIView
+
+@end

@@ -112,7 +112,7 @@
 
 - (void)verifyBtnOnClick
 {
-    
+    [self.delegate certViewCellDidSelectWithModel:self.certMode];
 }
 
 #pragma mark - 懒加载

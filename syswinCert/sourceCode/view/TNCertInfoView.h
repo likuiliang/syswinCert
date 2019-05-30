@@ -10,7 +10,15 @@
 #import "TOONWYGlobalDefinition.h"
 #import "TNHashCertificateModel.h"
 
+@protocol TNCertInfoViewDelegate <NSObject>
+
+- (void)certViewCellDidSelectWithModel:(TNHashCertificateModel *)model;
+
+@end
+
 @interface TNCertInfoView : UIView
+
+@property (nonatomic, weak) id<TNCertInfoViewDelegate> delegate;
 
 - (void)updateCertInfoViewWithModel:(TNHashCertificateModel *)model;
 

@@ -153,3 +153,126 @@
 }
 
 @end
+
+@interface TNVerifyTitleCell ()
+
+@property (nonatomic, strong) UILabel *bgNomalLabel;
+@property (nonatomic, strong) UILabel *bgSelectLabel;
+@property (nonatomic, strong) UILabel *titleLabel;
+@property (nonatomic, strong) UIImageView *headerImageView;
+@property (nonatomic, strong) UIImageView *rotundityImageView;
+
+@end
+
+@implementation TNVerifyTitleCell
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
+{
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self.contentView addSubview:self.bgNomalLabel];
+        [self.contentView addSubview:self.bgSelectLabel];
+        [self.contentView addSubview:self.rotundityImageView];
+        [self.contentView addSubview:self.headerImageView];
+        [self.contentView addSubview:self.titleLabel];
+        [self updateVerifyTitleViewConstraints];
+    }
+    return self;
+}
+
+- (void)updateVerifyCellInfoWithModel:(TNVerifyInfoModel *)model
+{
+    self.bgNomalLabel.backgroundColor = [UIColor colorWithHEXString:@"#E3E4E7"];
+    self.titleLabel.text = model.title;
+    if (model.isHeaderTItleView) {
+        self.rotundityImageView.hidden = YES;
+        self.titleLabel.font = [UIFont boldSystemFontOfSize:20];
+        
+    } else {
+        self.titleLabel.font = [UIFont systemFontOfSize:16];
+    }
+    self.headerImageView.image = [UIImage imageNamed:model.imageName];
+    if (model.verifyType == TNVerifyBeingType) {
+    } else if (model.verifyType == TNVerifySuccessType) {
+        self.bgNomalLabel.backgroundColor = [UIColor colorWithHEXString:@"#1FB677"];
+    } else if (model.verifyType == TNVerifyFailType && !model.isHeaderTItleView) {
+        self.headerImageView.image = [UIImage imageNamed:@"check_error_image"];
+        self.titleLabel.textColor = [UIColor colorWithHEXString:@"#C02219"];
+    }
+}
+
+- (void)updateVerifyTitleViewConstraints
+{
+    [self.bgNomalLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(12);
+        make.height.mas_equalTo(self);
+        make.left.mas_equalTo(39);
+        make.top.mas_equalTo(self);
+    }];
+    
+    [self.bgSelectLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.mas_equalTo(self.bgNomalLabel);
+    }];
+    
+    [self.rotundityImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(6, 6));
+        make.left.mas_equalTo(self).with.offset(42);
+        make.centerY.mas_equalTo(self);
+    }];
+    
+    [self.headerImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(34, 34));
+        make.center.mas_equalTo(self.rotundityImageView);
+    }];
+    
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self).with.offset(82);
+        make.height.mas_equalTo(self);
+        make.right.mas_equalTo(self).with.offset(-20);
+        make.centerY.mas_equalTo(self);
+    }];
+}
+
+- (UILabel *)bgNomalLabel
+{
+    if (!_bgNomalLabel) {
+        _bgNomalLabel = [UILabel new];
+    }
+    return _bgNomalLabel;
+}
+
+- (UILabel *)bgSelectLabel
+{
+    if (!_bgSelectLabel) {
+        _bgSelectLabel = [UILabel new];
+    }
+    return _bgSelectLabel;
+}
+
+- (UIImageView *)headerImageView
+{
+    if (!_headerImageView) {
+        _headerImageView = [[UIImageView alloc] init];
+    }
+    return _headerImageView;
+}
+
+- (UIImageView *)rotundityImageView
+{
+    if (!_rotundityImageView) {
+        _rotundityImageView = [[UIImageView alloc] init];
+        _rotundityImageView.backgroundColor = [UIColor whiteColor];
+        _rotundityImageView.layer.masksToBounds = YES;
+        _rotundityImageView.layer.cornerRadius = 3;
+    }
+    return _rotundityImageView;
+}
+
+- (UILabel *)titleLabel
+{
+    if (!_titleLabel) {
+        _titleLabel = [UILabel new];
+    }
+    return _titleLabel;
+}
+
+@end
