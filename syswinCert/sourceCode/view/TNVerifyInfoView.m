@@ -41,6 +41,12 @@
     if (infoModel.verifyType == TNVerifyFailType) {
         self.verifyTitleLabel.backgroundColor = [UIColor colorWithHEXString:@"#D3453D"];
         self.verifyTitleLabel.textColor = [UIColor colorWithHEXString:@"#FFFFFF"];
+        self.verifyTitleLabel.text = @"验证失败";
+    }
+    if (key == 8 && infoModel.verifyType == TNVerifySuccessType) {
+        self.verifyTitleLabel.backgroundColor = [UIColor colorWithHEXString:@"#1FB677"];
+        self.verifyTitleLabel.textColor = [UIColor colorWithHEXString:@"#FFFFFF"];
+        self.verifyTitleLabel.text = @"验证通过";
     }
     [self.verifyTableView reloadData];
 }
