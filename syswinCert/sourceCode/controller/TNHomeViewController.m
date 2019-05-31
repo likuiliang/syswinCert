@@ -118,13 +118,13 @@
     
     NSString *allFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:filePath];
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:allFilePath]) {
+//    if (![[NSFileManager defaultManager] fileExistsAtPath:allFilePath]) {
         [sourceData writeToFile:allFilePath atomically:YES];
         // 写入本地后，把相关内容存入数据库
         [[TNCertManager instance] saveCertificateWithFilePath:filePath];
-    } else {
-        [MBProgressHUD showMessage:@"该证书文件已存在" inView:nil];
-    }
+//    } else {
+//        [MBProgressHUD showMessage:@"该证书文件已存在" inView:nil];
+//    }
 }
 
 

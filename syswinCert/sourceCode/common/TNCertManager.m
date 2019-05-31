@@ -46,6 +46,7 @@
     
     // 保存证书及用户信息入库
     TNReceiverObject *receiverObject = [TNReceiverObject new];
+    receiverObject.receiverId = hashCert.receiver.receiverId;
     receiverObject.receiverPK = hashCert.receiver.receiverPublicKey;
     receiverObject.signFile = filePath;
     receiverObject.issuerPK = hashCert.issuer.issuerPublicKey;

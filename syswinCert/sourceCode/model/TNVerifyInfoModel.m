@@ -29,7 +29,7 @@
         hashRemoteModel.title = @"获取远程hash";
     
         TNVerifyInfoModel *signRemoteModel = [TNVerifyInfoModel new];
-        signRemoteModel.title = @"验证发布者";
+        signRemoteModel.title = @"验证发布者签名";
     
     
     TNVerifyInfoModel *hashVerifyModel = [TNVerifyInfoModel new];

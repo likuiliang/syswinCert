@@ -75,6 +75,7 @@
     if (!issuerCell) {
         issuerCell = [[TNVerifyTitleCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
         tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        issuerCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [issuerCell updateVerifyCellInfoWithModel:self.dataSource[indexPath.row]];
     return issuerCell;

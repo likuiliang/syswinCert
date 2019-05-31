@@ -90,6 +90,7 @@
     if (!_backgroundImageView) {
         _backgroundImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"issuer_bg_image"]];
         _backgroundImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _backgroundImageView.clipsToBounds = YES;
     }
     return _backgroundImageView;
 }
@@ -99,6 +100,7 @@
     if (!_issuerImageView) {
         _issuerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"issuer_headerImage"]];
         _issuerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _issuerImageView.clipsToBounds = YES;
     }
     return _issuerImageView;
 }

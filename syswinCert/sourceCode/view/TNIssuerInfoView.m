@@ -14,7 +14,7 @@
 @interface TNIssuerInfoView () <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView *issuerInfoTableView;
-@property (nonatomic, strong) NSArray *dataSource;
+@property (nonatomic, strong) NSMutableArray *dataSource;
 @property (nonatomic, strong) TNIssuerInfoHeaderView *headerView;
 @property (strong, nonatomic) UIButton *leftButton;
 
@@ -39,7 +39,7 @@
 
 - (void)updateTableViewWithDataSource:(NSArray *)dataSource
 {
-    self.dataSource = dataSource;
+    self.dataSource = [dataSource mutableCopy];
     [self.issuerInfoTableView reloadData];
     [self.headerView updateIssuerViewWithModel:self.issuerObject];
 }
@@ -78,6 +78,20 @@
     [self.delegate issuerInfoCellOnClick:object];
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
+        // 删除数据源的数据,self.cellData是你自己的数据
+        TNReceiverObject *object = self.dataSource[indexPath.row];
+        [[TNSqlManager instance] deleteReceiverWithName:object.receiverId];
+        [self.dataSource removeObjectAtIndex:indexPath.row];
+        // 删除列表中数据
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+    }
+    
+}
+
 #pragma mark - 懒加载
 
 - (UITableView *)issuerInfoTableView
@@ -95,10 +109,10 @@
     return _issuerInfoTableView;
 }
 
-- (NSArray *)dataSource
+- (NSMutableArray *)dataSource
 {
     if (!_dataSource) {
-        _dataSource = [NSArray new];
+        _dataSource = [NSMutableArray new];
     }
     return _dataSource;
 }

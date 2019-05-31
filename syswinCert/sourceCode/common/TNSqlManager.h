@@ -26,6 +26,8 @@
 
 - (NSArray *)queryReceiverWithName:(NSString *)receiverPK;
 
+- (void)deleteReceiverWithName:(NSString *)receiverId;
+
 - (NSArray *)queryIssuerWithName:(NSString *)issuerPK;
 @end
 

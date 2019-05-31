@@ -54,6 +54,11 @@
     }
 }
 
+- (void)deleteReceiverWithName:(NSString *)receiverId
+{
+    [self.dbManager deleteItemsInTable:[TNReceiverObject class] where:@"receiverId = '%@'", receiverId, nil];
+}
+
 - (NSArray *)registerTableClasses {
     return @[[TNIssuerObject class],[TNReceiverObject class]];
 }

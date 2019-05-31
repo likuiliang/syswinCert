@@ -25,6 +25,12 @@
 
 @end
 
+@interface TNTextPkView : TNCertCommonView
+
+@property (nonatomic, strong) UITextView *textView;
+
+@end
+
 @interface TNButtonView : TNCertCommonView
 
 @property (nonatomic, strong) UIButton *buttonView;

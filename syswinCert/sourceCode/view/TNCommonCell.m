@@ -114,6 +114,63 @@
 
 @end
 
+@interface TNTextPkView ()
+
+
+
+@end
+
+@implementation TNTextPkView
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        [self initTextViewCell];
+        [self updateTextFieldCellConstraints];
+    }
+    return self;
+}
+
+- (void)initTextViewCell
+{
+    [self addSubview:self.titleLabel];
+    [self addSubview:self.textView];
+    [self addSubview:self.lineView];
+}
+
+- (void)updateTextFieldCellConstraints
+{
+    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.mas_equalTo(self).with.offset(16);
+        make.size.mas_equalTo(CGSizeMake(100, 50));
+        make.top.mas_equalTo(self);
+    }];
+    
+    [self.textView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self);
+        make.left.mas_equalTo(self.titleLabel.mas_right).with.offset(15);
+        make.height.mas_equalTo(self);
+        make.right.mas_equalTo(self).with.offset(-10);
+    }];
+    
+    [self.lineView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        make.top.mas_equalTo(self.mas_bottom).with.offset(-0.5);
+        make.height.mas_equalTo(0.5);
+        make.left.mas_equalTo(self).with.offset(16);
+        make.right.mas_equalTo(self);
+    }];
+}
+
+- (UITextView *)textView
+{
+    if (!_textView) {
+        _textView = [[UITextView alloc] init];
+    }
+    return _textView;
+}
+
+@end
+
 
 @interface TNButtonView ()
 

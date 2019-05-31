@@ -17,7 +17,7 @@
 
 @property (nonatomic, strong) TNTextFieldView *nameTextFieldView;
 @property (nonatomic, strong) TNTextFieldView *emailTextFieldView;
-@property (nonatomic, strong) TNTextFieldView *pkTextFieldView;
+@property (nonatomic, strong) TNTextPkView *pkTextView;
 @property (nonatomic, strong) TNButtonView *buttonView;
 @property (nonatomic, strong) TNApplyCertModel *applyCertModel;
 
@@ -31,7 +31,7 @@
     if (self = [super init]) {
         [self addSubview:self.nameTextFieldView];
         [self addSubview:self.emailTextFieldView];
-        [self addSubview:self.pkTextFieldView];
+        [self addSubview:self.pkTextView];
         [self addSubview:self.buttonView];
         [self updateApplyConstraints];
         [self setPubKey];
@@ -53,14 +53,14 @@
         make.left.mas_equalTo(self);
     }];
     
-    [self.pkTextFieldView mas_makeConstraints:^(MASConstraintMaker *make) {
+    [self.pkTextView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.mas_equalTo(self.emailTextFieldView.mas_bottom);
         make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 80));
         make.left.mas_equalTo(self);
     }];
     
     [self.buttonView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.mas_equalTo(self.pkTextFieldView.mas_bottom).with.offset(40);
+        make.top.mas_equalTo(self.pkTextView.mas_bottom).with.offset(40);
         make.size.mas_equalTo(CGSizeMake(SCREEN_WIDTH, 44));
         make.left.mas_equalTo(self);
     }];
@@ -69,7 +69,7 @@
 - (void)setPubKey
 {
     NSString *pubKey = [TSBManager getEccPubKey:@"syswin_tsb_pwd_initializer"];
-    self.pkTextFieldView.textField.text = pubKey;
+    self.pkTextView.textView.text = pubKey;
 }
 
 - (void)applyCertOnClick
@@ -77,7 +77,7 @@
     NSMutableDictionary *dictParam = [NSMutableDictionary new];
     [dictParam setValue:self.nameTextFieldView.textField.text forKey:@"receiverName"];
     [dictParam setValue:self.emailTextFieldView.textField.text forKey:@"receiverEmail"];
-    [dictParam setValue:self.pkTextFieldView.textField.text forKey:@"publicKey"];
+    [dictParam setValue:self.pkTextView.textView.text forKey:@"publicKey"];
     [dictParam setValue:@"image" forKey:@"receiverImage"];
     
     [self.applyCertModel requestApplyCertWithParam:dictParam block:^(BOOL isSuccess) {
@@ -105,14 +105,14 @@
     return _emailTextFieldView;
 }
 
-- (TNTextFieldView *)pkTextFieldView
+- (TNTextPkView *)pkTextView
 {
-    if (!_pkTextFieldView) {
-        _pkTextFieldView = [[TNTextFieldView alloc] init];
-        _pkTextFieldView.titleLabel.text = @"PK";
-        _pkTextFieldView.textField.placeholder = @"请输入公钥地址";
+    if (!_pkTextView) {
+        _pkTextView = [[TNTextPkView alloc] init];
+        _pkTextView.titleLabel.text = @"PK";
+//        _pkTextView.textField.placeholder = @"请输入公钥地址";
     }
-    return _pkTextFieldView;
+    return _pkTextView;
 }
 
 - (TNButtonView *)buttonView
