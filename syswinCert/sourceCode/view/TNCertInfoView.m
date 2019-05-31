@@ -86,14 +86,20 @@
 
     TNTitleView *receiverCertView = [TNTitleView new];
     receiverCertView.titleLabel.text = @"证件类型";
-    receiverCertView.detailLabel.text = self.certMode.cert.certEducation;
+    receiverCertView.detailLabel.text = self.certMode.cert.certType;
     receiverCertView.frame = CGRectMake(0, CGRectGetMaxY(receiverTitleView.frame), SCREEN_WIDTH, 40);
     [self.certInfoScrollView addSubview:receiverCertView];
+    
+    TNTitleView *certEducationView = [TNTitleView new];
+    certEducationView.titleLabel.text = @"学历类型";
+    certEducationView.detailLabel.text = self.certMode.cert.certEducation;
+    certEducationView.frame = CGRectMake(0, CGRectGetMaxY(receiverCertView.frame), SCREEN_WIDTH, 40);
+    [self.certInfoScrollView addSubview:certEducationView];
 
     TNTitleView *receiverCertNoView = [TNTitleView new];
     receiverCertNoView.titleLabel.text = @"收件人邮箱";
     receiverCertNoView.detailLabel.text = self.certMode.receiver.receiverEmail;
-    receiverCertNoView.frame = CGRectMake(0, CGRectGetMaxY(receiverCertView.frame), SCREEN_WIDTH, 40);
+    receiverCertNoView.frame = CGRectMake(0, CGRectGetMaxY(certEducationView.frame), SCREEN_WIDTH, 40);
     [self.certInfoScrollView addSubview:receiverCertNoView];
     
     self.certInfoScrollView.contentSize = CGSizeMake(SCREEN_WIDTH, CGRectGetMaxY(receiverCertNoView.frame) + 10);

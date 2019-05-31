@@ -29,6 +29,9 @@
 
 + (UIImage *)formatBase64ImageWithString:(NSString *)base64String;
 
+// 检查证书格式是否正确
++ (BOOL)checkCertIsvalid:(NSString *)filePath;
+
 
 
 @end

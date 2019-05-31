@@ -86,6 +86,7 @@
 {
     if (!_headerImageView) {
         _headerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"issuer_headerImage"]];
+        _headerImageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _headerImageView;
 }

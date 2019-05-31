@@ -25,6 +25,25 @@
     return instance;
 }
 
++ (BOOL)checkCertIsvalid:(NSString *)filePath
+{
+    NSError *error;
+    NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:filePath];
+    NSString *stringJosn = [NSString stringWithContentsOfFile:localFilePath encoding:NSUTF8StringEncoding error:&error];
+    NSDictionary *dictObject = [stringJosn tn_JSONObject];
+    NSArray *keyList = [dictObject allKeys];
+    if (keyList && keyList.count) {
+        BOOL isValidCert = [keyList containsObject:@"cert"];
+        BOOL isValidsignature = [keyList containsObject:@"signature"];
+        if (isValidCert && isValidsignature) {
+            return YES;
+        }
+        return NO;
+    } else {
+        return NO;
+    }
+}
+
 - (void)saveCertificateWithFilePath:(NSString *)filePath
 {
     // 保存数据库
@@ -137,6 +156,7 @@
 {
     
     AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    manager.requestSerializer.timeoutInterval = 25.f;
     // 返回的格式 JSON
     //    manager.responseSerializer= [AFJSONResponseSerializer serializer];
     // 可接受的文本参数规格

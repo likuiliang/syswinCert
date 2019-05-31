@@ -621,7 +621,9 @@
 			baseConfigurationReference = 585D9521FA9DA861868C78DE /* Pods-syswinCert.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = syswinCert/syswinCert.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = TLWP697Z5D;
 				ENABLE_BITCODE = NO;
@@ -633,8 +635,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systoon.enterprise.syswinCert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = com.systoon.enterprise.syswinCert;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = developer.com.systoon.enterprise.syswinCert;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Debug;
 		};
@@ -643,9 +646,11 @@
 			baseConfigurationReference = F4D4E0CD29BE475F9A4782A6 /* Pods-syswinCert.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_ENTITLEMENTS = syswinCert/syswinCert.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = TLWP697Z5D;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = syswinCert/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -655,8 +660,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.systoon.enterprise.syswinCert;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE_SPECIFIER = 5ceng.com.systoon.enterprise.syswinCert;
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "arm64 arm64e armv7s";
 			};
 			name = Release;
 		};

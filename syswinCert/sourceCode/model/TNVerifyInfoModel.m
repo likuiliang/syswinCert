@@ -38,7 +38,7 @@
     hashVerifyModel.isHeaderTItleView = YES;
     
         TNVerifyInfoModel *checkhashModel = [TNVerifyInfoModel new];
-        checkhashModel.title = @"检查hash";
+        checkhashModel.title = @"比较本地和链上hash";
     
     
     TNVerifyInfoModel *revecerVerifyModel = [TNVerifyInfoModel new];
@@ -47,7 +47,7 @@
     revecerVerifyModel.isHeaderTItleView = YES;
     
         TNVerifyInfoModel *checkReceviceModel = [TNVerifyInfoModel new];
-        checkReceviceModel.title = @"验证收证人";
+        checkReceviceModel.title = @"验证收证人是否持有私钥";
     
     [titleArray addObject:formatVerifyModel];
     

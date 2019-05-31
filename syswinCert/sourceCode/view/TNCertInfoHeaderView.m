@@ -96,7 +96,7 @@
 {
     if (!_issuerImageView) {
         _issuerImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"issuer_headerImage"]];
-        _issuerImageView.contentMode = UIViewContentModeScaleAspectFill;
+        _issuerImageView.contentMode = UIViewContentModeScaleAspectFit;
     }
     return _issuerImageView;
 }
