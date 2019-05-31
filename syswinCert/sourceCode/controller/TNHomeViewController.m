@@ -87,9 +87,7 @@
 }
 
 #pragma mark - UIDocumentPickerDelegate
-//    当需要访问不在 App 自身的沙盒或者自身共享容器里的资源时，需要申请权限访问，使用到 NSURL 的两个方法:
-//    开始安全访问：- (BOOL)startAccessingSecurityScopedResource
-//    停止安全访问：- (void)stopAccessingSecurityScopedResource
+
 - (void)documentPicker:(UIDocumentPickerViewController *)controller didPickDocumentAtURL:(NSURL *)url {
     
     BOOL fileUrlAuthozied = [url startAccessingSecurityScopedResource];
@@ -118,12 +116,15 @@
         [[NSFileManager defaultManager] createDirectoryAtPath:KLocalSourceFilePath withIntermediateDirectories:YES attributes:nil error:nil];
     }
     
-    NSString *localFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:filePath];
+    NSString *allFilePath = [KLocalSourceFilePath stringByAppendingPathComponent:filePath];
     
-    [sourceData writeToFile:localFilePath atomically:YES];
-    // 写入本地后，把相关内容存入数据库
-    
-    [[TNCertManager instance] saveCertificateWithFilePath:filePath];;
+    if (![[NSFileManager defaultManager] fileExistsAtPath:allFilePath]) {
+        [sourceData writeToFile:allFilePath atomically:YES];
+        // 写入本地后，把相关内容存入数据库
+        [[TNCertManager instance] saveCertificateWithFilePath:filePath];
+    } else {
+        [MBProgressHUD showMessage:@"该证书文件已存在" inView:nil];
+    }
 }
 
 

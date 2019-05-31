@@ -139,6 +139,8 @@
         [_verifyBtn setTitle:@"验证" forState:UIControlStateNormal];
         [_verifyBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         _verifyBtn.backgroundColor = [UIColor colorWithHEXString:@"#355ACF"];
+        _verifyBtn.layer.masksToBounds = YES;
+        _verifyBtn.layer.cornerRadius = 10;
         [_verifyBtn addTarget:self action:@selector(verifyBtnOnClick) forControlEvents:UIControlEventTouchUpInside];
     }
     return _verifyBtn;

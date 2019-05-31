@@ -60,6 +60,7 @@
     TNIssuerCell *issuerCell = [tableView dequeueReusableCellWithIdentifier:identifier];
     if (!issuerCell) {
         issuerCell = [[TNIssuerCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        issuerCell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     [issuerCell updateCellInfoWithModel:self.dataSource[indexPath.row]];
     

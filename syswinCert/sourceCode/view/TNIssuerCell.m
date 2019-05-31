@@ -76,7 +76,8 @@
     } else if ([model isKindOfClass:[TNIssuerObject class]]){
         TNIssuerObject *issuerObject = (TNIssuerObject *)model;
         self.titleLabel.text = issuerObject.name;
-        self.subTitleLabel.text = @"1张证书";
+        NSArray *array = [[TNSqlManager instance] queryReceiverWithName:issuerObject.issuerPk];
+        self.subTitleLabel.text = [NSString stringWithFormat:@"%ld张证书",array.count];
         self.headerImageView.image = [TNCertManager formatBase64ImageWithString:issuerObject.avatar];
     }
 }
